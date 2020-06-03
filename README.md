@@ -1,4 +1,4 @@
-## <center>The Ultimate NeoVim Config for [Colemak](https://colemak.com/) Users</center>
+## <center>The Ultimate NeoVim Config </center>
 
 <center><img src="https://raw.githubusercontent.com/theniceboy/nvim/master/demo.png"></center>
 
