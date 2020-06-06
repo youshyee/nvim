@@ -204,10 +204,10 @@ noremap <LEADER>l <C-w>l
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap <Leader>sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap <Leader>sj :set splitbelow<CR>:split<CR>
-noremap <Leader>sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap <Leader>sl :set splitright<CR>:vsplit<CR>
+noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+noremap sj :set splitbelow<CR>:split<CR>
+noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap sl :set splitright<CR>:vsplit<CR>
 
 " Resize splits with arrow keys
 noremap R<up> :res +10<CR>
@@ -359,7 +359,7 @@ Plug 'mbbill/undotree' " <leader>u toggle undotree
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-" Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
+Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 
@@ -380,13 +380,16 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'dkarter/bullets.vim'
 
+" Other filetypes
+Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
+
 " Editor Enhancement
 "Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'mg979/vim-visual-multi'
 Plug 'tomtom/tcomment_vim' " in <space>/ to comment a line or <space>; to comment inline
 Plug 'theniceboy/antovim' "  'gs' to switch true to false
-Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
 "Plug 'junegunn/vim-after-object' " da= to delete what's after =
 Plug 'godlygeek/tabular' " :Tabularize <regex> to align
@@ -481,7 +484,7 @@ hi NonText ctermfg=gray guifg=grey10
 
 
 " ===
-" === airline 
+" === eleline.vim
 " ===
 let g:airline_powerline_fonts = 1
 
@@ -752,6 +755,12 @@ let g:bullets_enabled_file_types = [
 
 
 " ===
+" === fzf-gitignore
+" ===
+noremap <LEADER>gi :FzfGitignore<CR>
+
+
+" ===
 " === Ultisnips
 " ===
 " let g:tex_flavor = "latex"
@@ -951,7 +960,7 @@ let g:php_folding = 1
 " ===
 " === tabular
 " ===
-vmap tt :Tabularize /
+vmap ga :Tabularize /
 
 
 " ===
