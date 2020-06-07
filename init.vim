@@ -6,11 +6,6 @@
 
 " Author: xinyu
 
-" Checkout-list
-" vim-esearch
-" fmoralesc/worldslice
-" SidOfc/mkdx
-
 
 " ===
 " === Auto load for first time uses
@@ -161,7 +156,7 @@ noremap <silent> <LEADER>o za
 " join lines
 noremap <bar> :join!<CR>
 " Open up lazygit
-noremap \g :Git 
+noremap \gg :Git 
 "noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
 
@@ -204,10 +199,10 @@ noremap <LEADER>l <C-w>l
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sj :set splitbelow<CR>:split<CR>
-noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap sl :set splitright<CR>:vsplit<CR>
+noremap <Leader>sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+noremap <Leader>sj :set splitbelow<CR>:split<CR>
+noremap <Leader>sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap <Leader>sl :set splitright<CR>:vsplit<CR>
 
 " Resize splits with arrow keys
 noremap R<up> :res +10<CR>
@@ -218,10 +213,10 @@ noremap R<right> :vertical resize+10<CR>
 " === Tab management
 " ===
 " Create a new tab with tu
-noremap tn :tabe<CR>
+noremap <Leader>tn :tabe<CR>
 " Move around tabs with tn and ti
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
+noremap <Leader>th :-tabnext<CR>
+noremap <Leader>tl :+tabnext<CR>
 
 " ===
 " === Markdown Settings
@@ -351,15 +346,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
 
 " Snippets
 Plug 'SirVer/ultisnips' "  # to do
-" Plug 'theniceboy/vim-snippets'
 
 " Undo Tree
 Plug 'mbbill/undotree' " <leader>u toggle undotree
-
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
+" Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+" Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 
@@ -415,11 +408,11 @@ Plug 'junegunn/goyo.vim' " toggle <leader>gy go to zenmode
 
 " Bookmarks
 "Plug 'kshenoy/vim-signature'
-Plug 'MattesGroeger/vim-bookmarks' "toggle book mark mt bookmark annotation ma bookmark show all ml
+Plug 'MattesGroeger/vim-bookmarks' "toggle book mark mm bookmark annotation ma bookmark show all ml
 
 " Find & Replace
-Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } "find and replace by f
-Plug 'osyo-manga/vim-anzu' "search by n "
+" Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } "find and replace by f
+" Plug 'osyo-manga/vim-anzu' "search by n
 
 " Documentation
 "Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
@@ -445,9 +438,9 @@ Plug 'makerj/vim-pdf'
 "Plug 'xolox/vim-misc' " vim-session dep
 
 " Dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
-Plug 'roxma/nvim-yarp'
+" Plug 'roxma/nvim-yarp'
 
 call plug#end()
 
@@ -484,7 +477,7 @@ hi NonText ctermfg=gray guifg=grey10
 
 
 " ===
-" === eleline.vim
+" === airline.vim
 " ===
 let g:airline_powerline_fonts = 1
 
@@ -497,17 +490,16 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
 autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
-
+nnoremap \gf :GitGutterFold<CR>
+nnoremap \gh :GitGutterPreviewHunk<CR>
+nnoremap \g- :GitGutterPrevHunk<CR>
+nnoremap \g= :GitGutterNextHunk<CR>
 
 " ===
 " === vim-fugitive
 " ===
-nnoremap gb :Gblame<CR>
-
+nnoremap \gb :Gblame<CR>
+nnoremap \gm :Git commit -am ""
 
 " ===
 " === coc
@@ -645,15 +637,13 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 " === vim-bookmarks
 " ===
 let g:bookmark_no_default_key_mappings = 1
-nmap mt <Plug>BookmarkToggle
+nmap mm <Plug>BookmarkToggle
 nmap ma <Plug>BookmarkAnnotate
 nmap ml <Plug>BookmarkShowAll
-nmap mj <Plug>BookmarkNext
-nmap mk <Plug>BookmarkPrev
+nmap mn <Plug>BookmarkNext
+nmap mp <Plug>BookmarkPrev
 nmap mC <Plug>BookmarkClear
 nmap mX <Plug>BookmarkClearAll
-nmap mu <Plug>BookmarkMoveUp
-nmap me <Plug>BookmarkMoveDown
 nmap <Leader>g <Plug>BookmarkMoveToLine
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
@@ -697,34 +687,6 @@ let g:multi_cursor_skip_key = '<C-x>'
 let g:multi_cursor_quit_key = '<Esc>'
 
 
-" ===
-" === vim-visual-multi
-" ===
-" let g:VM_theme             = 'iceblue'
-" let g:VM_default_mappings = 0
-" let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-" let g:VM_maps = {}
-" let g:VM_custom_motions  = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
-" let g:VM_maps['i']         = 'k'
-" let g:VM_maps['I']         = 'K'
-" let g:VM_maps['Find Under']         = '<C-k>'
-" let g:VM_maps['Find Subword Under'] = '<C-k>'
-" let g:VM_maps['Find Next']         = ''
-" let g:VM_maps['Find Prev']         = ''
-" let g:VM_maps['Remove Region'] = 'q'
-" let g:VM_maps['Skip Region'] = '<c-n>'
-" let g:VM_maps["Undo"]      = 'l'
-" let g:VM_maps["Redo"]      = '<C-r>'
-
-
-" ===
-" === Far.vim
-" ===
-noremap <LEADER>f :F  **/*<left><left><left><left><left>
-let g:far#mapping = {
-		\ "replace_undo" : ["l"],
-		\ }
-
 
 " ===
 " === Bullets.vim
@@ -757,7 +719,7 @@ let g:bullets_enabled_file_types = [
 " ===
 " === fzf-gitignore
 " ===
-noremap <LEADER>gi :FzfGitignore<CR>
+" noremap <LEADER>gi :FzfGitignore<CR>
 
 
 " ===
@@ -790,120 +752,9 @@ let maplocalleader=' '
 
 
 " ===
-" === vim-calendar
-" ===
-"noremap \c :Calendar -position=here<CR>
-"noremap \\ :Calendar -view=clock -position=here<CR>
-"let g:calendar_google_calendar = 1
-"let g:calendar_google_task = 1
-"augroup calendar-mappings
-	"autocmd!
-	"" diamond cursor
-	"autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	"autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	"autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	"autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	"autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
-	"autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
-	"autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
-	"autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
-	"autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
-	"autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
-	"" unmap <C-n>, <C-p> for other plugins
-	"autocmd FileType calendar nunmap <buffer> <C-n>
-	"autocmd FileType calendar nunmap <buffer> <C-p>
-"augroup END
-
-
-" ===
-" === Anzu
-" ===
-set statusline=%{anzu#search_status()}
-"nnoremap = n
-"nnoremap - N
-
-
-" ===
-" === vim-go
-" ===
-let g:go_echo_go_info = 0
-let g:go_doc_popup_window = 1
-let g:go_def_mapping_enabled = 0
-let g:go_template_autocreate = 0
-let g:go_textobj_enabled = 0
-let g:go_auto_type_info = 1
-let g:go_def_mapping_enabled = 0
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_format_strings = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_function_parameters = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_string_spellcheck = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_types = 1
-let g:go_highlight_variable_assignments = 0
-let g:go_highlight_variable_declarations = 0
-let g:go_doc_keywordprg_enabled = 0
-
-
-" ===
 " === AutoFormat
 " ===
 nnoremap \f :Autoformat<CR>
-
-
-" ===
-" === OmniSharp
-" ===
-"let g:OmniSharp_typeLookupInPreview = 1
-"let g:omnicomplete_fetch_full_documentation = 1
-"
-"let g:OmniSharp_server_use_mono = 1
-"let g:OmniSharp_server_stdio = 1
-"let g:OmniSharp_highlight_types = 2
-"let g:OmniSharp_selector_ui = 'ctrlp'
-"
-"autocmd Filetype cs nnoremap <buffer> gd :OmniSharpPreviewDefinition<CR>
-"autocmd Filetype cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
-"autocmd Filetype cs nnoremap <buffer> gy :OmniSharpTypeLookup<CR>
-"autocmd Filetype cs nnoremap <buffer> ga :OmniSharpGetCodeActions<CR>
-"autocmd Filetype cs nnoremap <buffer> <LEADER>rn :OmniSharpRename<CR><C-N>:res +5<CR>
-"
-"sign define OmniSharpCodeActions text=💡
-"
-"augroup OSCountCodeActions
-	"autocmd!
-	"autocmd FileType cs set signcolumn=yes
-	"autocmd CursorHold *.cs call OSCountCodeActions()
-"augroup END
-"
-"function! OSCountCodeActions() abort
-	"if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
-	"if !OmniSharp#IsServerRunning() | return | endif
-	"let opts = {
-				"\ 'CallbackCount': function('s:CBReturnCount'),
-				"\ 'CallbackCleanup': {-> execute('sign unplace 99')}
-				"\}
-	"call OmniSharp#CountCodeActions(opts)
-"endfunction
-"
-"function! s:CBReturnCount(count) abort
-	"if a:count
-		"let l = getpos('.')[1]
-		"let f = expand('%:p')
-		"execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
-	"endif
-"endfunction
-
 
 " ===
 " === vim-easymotion
@@ -913,27 +764,12 @@ let g:EasyMotion_do_shade = 0
 let g:EasyMotion_smartcase = 1
 map ' <Plug>(easymotion-bd-f)
 nmap ' <Plug>(easymotion-bd-f)
-"map E <Plug>(easymotion-j)
-"map U <Plug>(easymotion-k)
-"nmap f <Plug>(easymotion-overwin-f)
-"map \; <Plug>(easymotion-prefix)
-"nmap ' <Plug>(easymotion-overwin-f2)
-"map 'l <Plug>(easymotion-bd-jk)
-"nmap 'l <Plug>(easymotion-overwin-line)
-"map  'w <Plug>(easymotion-bd-w)
-"nmap 'w <Plug>(easymotion-overwin-w)
 
 
 " ===
 " === goyo
 " ===
 map <LEADER>gy :Goyo<CR>
-
-
-" ===
-" === jsx
-" ===
-let g:vim_jsx_pretty_colorful_config = 1
 
 
 " ===
@@ -960,7 +796,7 @@ let g:php_folding = 1
 " ===
 " === tabular
 " ===
-vmap ga :Tabularize /
+vmap ta :Tabularize /
 
 
 " ===
@@ -970,7 +806,7 @@ vmap ga :Tabularize /
 
 
 " ===
-" === rainbow
+" === rainbow parentheses
 " ===
 let g:rainbow_active = 1
 
@@ -983,27 +819,7 @@ let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
-noremap to :XTabCycleMode<CR>
 noremap \p :XTabInfo<CR>
-
-
-" ===
-" === vim-session
-" ===
-"let g:session_directory = $HOME."/.config/nvim/tmp/sessions"
-"let g:session_autosave = 'no'
-"let g:session_autoload = 'no'
-"let g:session_command_aliases = 1
-"set sessionoptions-=buffers
-"set sessionoptions-=options
-"noremap sl :OpenSession<CR>
-"noremap sS :SaveSession<CR>
-"noremap ss :SaveSession 
-"noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
-"noremap so :OpenSession default<CR>
-"noremap sD :DeleteSession<CR>
-""noremap sA :AppendTabSession<CR>
-
 
 " ===
 " === context.vim
@@ -1018,32 +834,6 @@ noremap \p :XTabInfo<CR>
 cnoreabbrev sudowrite w suda://%
 cnoreabbrev sw w suda://%
 
-
-" ===
-" === vimspector
-" ===
-" let g:vimspector_enable_mappings = 'HUMAN'
-" function! s:read_template_into_buffer(template)
-" 	" has to be a function to avoid the extra space fzf#run insers otherwise
-" 	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
-" endfunction
-" command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
-" 			\   'source': 'ls -1 ~/.config/nvim/sample_vimspector_json',
-" 			\   'down': 20,
-" 			\   'sink': function('<sid>read_template_into_buffer')
-" 			\ })
-" noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
-" sign define vimspectorBP text=☛ texthl=Normal
-" sign define vimspectorBPDisabled text=☞ texthl=Normal
-" sign define vimspectorPC text=🔶 texthl=SpellBad
-
-
-" ===
-" === reply.vim
-" ===
-"noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
-"noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
-"noremap <LEADER>rt :ReplStop<CR>
 
 
 " ===
@@ -1097,7 +887,7 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ===
 " === AsyncRun
 " ===
-noremap gp :AsyncRun git push<CR>
+noremap \gp :AsyncRun git push<CR>
 
 
 " ===
@@ -1107,30 +897,11 @@ let g:asyncrun_open = 6
 
 
 " ===
-" === dart-vim-plugin
-" ===
-let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
-let g:dartfmt_options = " -l 100"
-
-
-" ===
 " === tcomment_vim
 " ===
-" nnoremap ci cl
- " let g:tcomment_textobject_inlinecomment = ''
 vmap <Leader>/ gc
 nmap <Leader>/ gcc
-" comment till end of the line
 nmap <Leader>; g>$
-"nmap <C-.> g>c
-"nmap <C-.> g<c
-"
-""vmap <LEADER>cu g<
-""nmap <LEADER>cn g>c
-""nmap <LEADER>cu g<c
-"vmap <LEADER>cu g<
-
 
 " ===================== End of Plugin Settings =====================
 
