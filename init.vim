@@ -156,7 +156,7 @@ noremap <silent> <LEADER>o za
 " join lines
 noremap <bar> :join!<CR>
 " Open up lazygit
-noremap \gg :Git 
+noremap \gg :Git
 "noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
 
@@ -174,7 +174,7 @@ noremap \gg :Git
 
 " U/E keys for 5 times u/e (faster navigation)
 noremap <silent> K 5k
-noremap <silent> J 5j 
+noremap <silent> J 5j
 " H key: go to the start of the line
 noremap <silent> H 0
 " L key: go to the end of the line
@@ -302,7 +302,7 @@ Plug 'airblade/vim-rooter' " change cwd to project dir
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 "Plug 'junkblocker/git-time-lapse'
-" 
+"
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'bling/vim-bufferline'
@@ -323,7 +323,7 @@ Plug 'jaxbot/semantic-highlight.vim'
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line 
+Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
 "Plug 'yuki-ycino/fzf-preview.vim'
 "Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 "Plug 'junegunn/fzf'
@@ -491,34 +491,30 @@ let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
 autocmd BufWritePost * GitGutter
 nnoremap \gf :GitGutterFold<CR>
-nnoremap \gh :GitGutterPreviewHunk<CR>
-nnoremap \g- :GitGutterPrevHunk<CR>
-nnoremap \g= :GitGutterNextHunk<CR>
+nnoremap \h :GitGutterPreviewHunk<CR>
+nnoremap \- :GitGutterPrevHunk<CR>
+nnoremap \= :GitGutterNextHunk<CR>
 
 " ===
 " === vim-fugitive
 " ===
 nnoremap \gb :Gblame<CR>
 nnoremap \gm :Git commit -am ""
-
+nnoremap \gi :CocList gitignore
 " ===
 " === coc
 " ===
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 let g:coc_global_extensions = ['coc-python', 'coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-pyright', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax']
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"nmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <TAB> <Plug>(coc-range-select)
-" use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]	=~ '\s'
 endfunction
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 function! s:check_back_space() abort
@@ -530,7 +526,7 @@ inoremap <silent><expr> <c-o> coc#refresh()
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
+	execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
@@ -538,7 +534,7 @@ nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<C
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
 "
-" coc yank list  
+" coc yank list
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -853,11 +849,11 @@ let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
 nnoremap <silent> <LEADER>R :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
+			\ 'width': &columns,
+			\ 'height': &lines,
+			\ 'col': 0,
+			\ 'row': 0,
+			\ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 
