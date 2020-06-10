@@ -1,0 +1,62 @@
+priority 50
+
+# mysnippets
+snippet torchimport "the basic import for pytorch" b
+import torch
+import torch.nn as nn
+import torchvision
+import mmcv
+import numpy as np
+
+$0
+endsnippet
+
+snippet torchmodel "the model for torch"
+class ${1:Modulename}(torch.nn.Module):
+
+	def __init__(self,<++>):
+		super($1,self).__init__()
+
+	def forward(self,<++>):
+		pass
+		<++>
+		$0
+		
+endsnippet
+
+snippet mmcvimg "mmcv image operations"
+
+img = mmcv.imread($1) # read as numpy
+# mmcv.imwrite(img, 'out.jpg') # write image
+# mmcv.imshow(img, win_name='test image', wait_time=200)
+
+endsnippet
+
+snippet mmcvvideo "mmcv video operations" b
+
+video = mmcv.VideoReader($1)
+
+# video meta data
+# width=video.width
+# height=video.height
+# resolution=video.resolution
+# fps=video.fps
+
+# video.cvt2frames('out_dir')
+# mmcv.frames2video('out_dir', 'test.avi') # generate video from frames
+
+endsnippet
+
+snippet mmcvprogressbar "mmcv progress bar" b
+
+# def func(item):
+# 	# do something
+# 	pass
+#
+# tasks = [item_1, item_2, ..., item_n]
+
+mmcv.track_progress(func, tasks)
+
+mmcv.track_parallel_progress(func, tasks, 8)  # in parallel 8 workers
+
+endsnippet

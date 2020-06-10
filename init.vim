@@ -85,7 +85,7 @@ if has('persistent_undo')
 	set undodir=~/.config/nvim/tmp/undo,.
 endif
 set colorcolumn=100
-set updatetime=1000
+set updatetime=500
 set virtualedit=block
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -145,10 +145,6 @@ noremap <LEADER><CR> :nohlsearch<CR>
 
 " Adjacent duplicate words
 " noremap <LEADER>dw /\(\<\w\+\>\)\_s*\1
-
-" 4 Space to Tab
-nnoremap <LEADER>tt :%s/    /\t/g
-vnoremap <LEADER>tt :s/    /\t/g
 
 " Folding
 noremap <silent> <LEADER>o za
@@ -213,10 +209,20 @@ noremap R<right> :vertical resize+10<CR>
 " === Tab management
 " ===
 " Create a new tab with tu
-noremap <Leader>tn :tabe<CR>
+noremap <Leader>tt :tabe<CR>
 " Move around tabs with tn and ti
 noremap <Leader>th :-tabnext<CR>
 noremap <Leader>tl :+tabnext<CR>
+noremap <M-1> 1gt
+noremap <M-2> 2gt
+noremap <M-3> 3gt
+noremap <M-4> 4gt
+noremap <M-5> 5gt
+noremap <M-6> 6gt
+noremap <M-7> 7gt
+noremap <M-8> 8gt
+noremap <M-9> 9gt
+noremap <M-0> 10gt
 
 " ===
 " === Markdown Settings
@@ -330,7 +336,7 @@ Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "<lead>+R run ranger
 
 " Taglist
-"Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'
 
 " Debugger
 "Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
@@ -346,6 +352,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
 
 " Snippets
 Plug 'SirVer/ultisnips' "  # to do
+Plug 'honza/vim-snippets'
 
 " Undo Tree
 Plug 'mbbill/undotree' " <leader>u toggle undotree
@@ -522,14 +529,13 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-o> coc#refresh()
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
 	execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>
 
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
@@ -615,7 +621,7 @@ noremap <C-p> :Files<CR>
 noremap <C-f> :Rg<CR>
 noremap <C-h> :History<CR>
 noremap <C-l> :Lines<CR>
-noremap <C-s> :Snippets<CR> " search snippets for Ultisnips
+noremap <C-s> :Snippets<CR>
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
@@ -699,17 +705,22 @@ let g:bullets_enabled_file_types = [
 " ===
 " === Vista.vim
 " ===
-"noremap <c-t> :silent! Vista finder coc<CR>
-"let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-"let g:vista_default_executive = 'ctags'
-"let g:vista_fzf_preview = ['right:50%']
-"let g:vista#renderer#enable_icon = 1
-"let g:vista#renderer#icons = {"function": "\uf794", "\   "variable": "\uf71b", "\  }
-"function! NearestMethodOrFunction() abort
-"	return get(b:, 'vista_nearest_method_or_function', '')
-"endfunction
-"set statusline+=%{NearestMethodOrFunction()}
-"autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+noremap <C-t> :silent! Vista finder coc<CR>
+let g:vista_default_executive = 'ctags'
+let g:vista_fzf_preview = ['right:50%']
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+function! NearestMethodOrFunction() abort
+	return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 
 " ===
@@ -721,7 +732,12 @@ let g:bullets_enabled_file_types = [
 " ===
 " === Ultisnips
 " ===
-" let g:tex_flavor = "latex"
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="C-m>"
+" let g:UltiSnipsListSnippets="<C-m>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsEditSplit="tabdo"
+"let g:tex_flavor = "latex"
 " inoremap <c-n> <nop>
 " let g:UltiSnipsExpandTrigger="<c-e>"
 " let g:UltiSnipsJumpForwardTrigger="<c-e>"
