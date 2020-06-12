@@ -1,11 +1,11 @@
-" __  ____   __  _   ___     _____ __  __ ____   ____
-"|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
-"| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
-"| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
-"|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
-
+"
+"             _
+"  _ ____   _(_)_ __ ___
+" | '_ \ \ / / | '_ ` _ \
+" | | | \ V /| | | | | | |
+" |_| |_|\_/ |_|_| |_| |_|
+"
 " Author: xinyu
-
 
 " ===
 " === Auto load for first time uses
@@ -38,6 +38,8 @@ source ~/.config/nvim/_machine_specific.vim
 let &t_ut=''
 set autochdir
 
+" set vim as default pager
+let $PAGER=''
 
 " ===
 " === Editor behavior
@@ -89,7 +91,8 @@ set updatetime=500
 set virtualedit=block
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
+" automaticaly delects all trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 " ===
 " === Terminal Behaviors
