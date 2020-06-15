@@ -509,7 +509,7 @@ nnoremap \= :GitGutterNextHunk<CR>
 " === vim-fugitive
 " ===
 nnoremap \gb :Gblame<CR>
-nnoremap \gm :Git commit -am ""
+nnoremap \gm :Git commit -av<CR>
 nnoremap \gi :CocList gitignore
 " ===
 " === coc
