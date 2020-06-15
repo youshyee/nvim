@@ -39,7 +39,7 @@ let &t_ut=''
 set autochdir
 
 " set vim as default pager
-let $PAGER=''
+" let $PAGER=''
 
 " ===
 " === Editor behavior
