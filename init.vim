@@ -138,8 +138,8 @@ noremap S :w<CR>
 
 " Copy to system clipboard
 vnoremap Y "+y
+nnoremap P "+p
 
-" Indentation
 nnoremap < <<
 nnoremap > >>
 
@@ -158,6 +158,8 @@ noremap <bar> :join!<CR>
 noremap \gg :Git
 "noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
+" page down
+noremap <C-w> <C-f>
 
 " ===
 " === Cursor Movement
@@ -509,7 +511,7 @@ nnoremap \= :GitGutterNextHunk<CR>
 " === vim-fugitive
 " ===
 nnoremap \gb :Gblame<CR>
-nnoremap \gm :Git commit -av<CR>
+nnoremap \gm :vert Git commit -av<CR>
 nnoremap \gi :CocList gitignore
 " ===
 " === coc
@@ -716,9 +718,9 @@ let g:vista#renderer#enable_icon = 1
 
 " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
 let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
+			\   "function": "\uf794",
+			\   "variable": "\uf71b",
+			\  }
 function! NearestMethodOrFunction() abort
 	return get(b:, 'vista_nearest_method_or_function', '')
 endfunction

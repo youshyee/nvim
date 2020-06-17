@@ -101,6 +101,7 @@
 
 		"h": "collapse",
 		"l": ["expandable?", "expand", "open:tab"],
+		"o": ["expanded?", "collapse", "expand"],
 		"J": ["toggleSelection", "nodeNext"],
 		"K": ["toggleSelection", "nodePrev"],
 		"gl": "expandRecursive",
@@ -110,12 +111,11 @@
 			["expanded?", "collapse", "expand"],
 			"open"
 		],
-		"o": ["expanded?", "collapse", "expand"],
 		"<cr>": ["expandable?", "cd", "open:tab"],
 
-		"e": "open",
-		"s": "open:vsplit",
-		"S": "open:split:plain",
+		"O": "open",
+		"S": "open:vsplit",
+		"s": "open:split:plain",
 		"E": "open:split",
 		"t": "open:tab",
 		"<bs>": "gotoParent",
@@ -129,7 +129,7 @@
 		"dD": "deleteForever",
 		"a": "addFile",
 		"M": "addDirectory",
-		"cw": "rename",
+		"A": "rename",
 		".": "toggleHidden",
 		"zh": "toggleHidden",
 		"R": "refresh",
