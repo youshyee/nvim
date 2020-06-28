@@ -374,7 +374,7 @@ Plug 'lervag/vimtex'
 " Python
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
@@ -761,7 +761,7 @@ let g:UltiSnipsEditSplit="tabdo"
 " === vimtex
 " ===
 "let g:vimtex_view_method = ''
-let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_text_obj_enabled = 0
 let g:vimtex_motion_enabled = 0
