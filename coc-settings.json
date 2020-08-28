@@ -199,6 +199,11 @@
 		"eelixir": "mix_format"
 	},
 	"languageserver": {
+		"latex": {
+			"command": "/usr/bin/texlab",
+			"ignoredRootPaths": ["~"],
+			"filetypes": ["tex", "bib", "plaintex", "context"]
+		},
 		"lua": {
 			"command": "lua-lsp",
 			"filetypes": ["lua"]

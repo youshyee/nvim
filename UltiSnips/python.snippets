@@ -21,7 +21,7 @@ class ${1:Modulename}(torch.nn.Module):
 		pass
 		<++>
 		$0
-		
+
 endsnippet
 
 snippet mmcvimg "mmcv image operations"
@@ -59,4 +59,12 @@ mmcv.track_progress(func, tasks)
 
 mmcv.track_parallel_progress(func, tasks, 8)  # in parallel 8 workers
 
+endsnippet
+
+snippet argparse "argparse for python" b
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--<++>', default='<++>', type=<++>)
+parser.add_argument('--<++>', action="store_true")
+args=parser.parse_args()
 endsnippet

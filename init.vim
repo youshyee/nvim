@@ -298,6 +298,31 @@ func! CompileRunGcc()
 	endif
 endfunc
 
+func! Pandocmd2beamer()
+	if &filetype == 'markdown'
+		exec "w"
+		exec"!pandoc % -f markdown -t beamer -o %<.pdf"
+	endif
+endfunc
+
+func! Pandocmd2pdf()
+	if &filetype == 'markdown'
+		exec "w"
+		exec"!pandoc % -f markdown -t pdf -o %<.pdf"
+	endif
+endfunc
+
+func! Getpdf()
+	if &filetype == 'markdown'
+		:call Pandocmd2pdf()
+	elseif &filetype == 'tex'
+		exec "w"
+		exec "!pdflatex %"
+		exec "!rm %<.aux %<.log"
+	endif
+endfunc
+
+noremap <C-\> :call Getpdf()<CR>
 
 " ===
 " === Install Plugins with Vim-Plug
@@ -380,7 +405,8 @@ Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-p
 Plug 'tweekmonster/braceless.vim'
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'dkarter/bullets.vim'
@@ -394,7 +420,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'mg979/vim-visual-multi'
 Plug 'tomtom/tcomment_vim' " in <space>/ to comment a line or <space>; to comment inline
 Plug 'theniceboy/antovim' "  'gs' to switch true to false
-Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
 "Plug 'junegunn/vim-after-object' " da= to delete what's after =
 Plug 'godlygeek/tabular' " :Tabularize <regex> to align
@@ -411,7 +437,7 @@ Plug 'terryma/vim-multiple-cursors'
 "Plug 'rlue/vim-barbaric' " slowing down vim-multiple-cursors
 
 " Formatter
-Plug 'Chiel92/vim-autoformat' "format text by <space>\
+Plug 'Chiel92/vim-autoformat' "format text by \f
 
 " For general writing
 Plug 'junegunn/goyo.vim' " toggle <leader>gy go to zenmode
@@ -518,7 +544,7 @@ nnoremap \gi :CocList gitignore
 " ===
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-pyright', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax']
+let g:coc_global_extensions = ['coc-python', 'coc-texlab','coc-vimtex','coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax']
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]	=~ '\s'
@@ -597,6 +623,7 @@ let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
+let g:mkdp_browser = "chromium"
 
 " ===
 " === anyjump
@@ -742,7 +769,7 @@ let g:UltiSnipsJumpForwardTrigger="C-m>"
 " let g:UltiSnipsListSnippets="<C-m>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 let g:UltiSnipsEditSplit="tabdo"
-"let g:tex_flavor = "latex"
+let g:tex_flavor = "latex"
 " inoremap <c-n> <nop>
 " let g:UltiSnipsExpandTrigger="<c-e>"
 " let g:UltiSnipsJumpForwardTrigger="<c-e>"
@@ -906,6 +933,8 @@ let g:rooter_patterns = ['__vim_project_root', '.git/']
 " ===
 noremap \gp :AsyncRun git push<CR>
 
+" urlview
+" noremap <C-u> :sp !urlview<CR> %
 
 " ===
 " === AsyncTasks

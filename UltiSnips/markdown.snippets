@@ -8,3 +8,19 @@ theme:
 - Copenhagen
 ---
 endsnippet
+
+snippet tikz_meta "tikz setting for meta data in md" b
+
+---
+title: <++>
+author: Xinyu
+date: \today
+header-includes: |
+ \usepackage{tikz}
+...
+
+\begin{tikzpicture}
+	<++>
+\end{tikzpicture}
+
+endsnippet
