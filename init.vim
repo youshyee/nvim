@@ -45,6 +45,7 @@ set autochdir
 " === Editor behavior
 " ===
 set number
+set hidden
 set relativenumber
 set cursorline
 set noexpandtab
@@ -87,7 +88,7 @@ if has('persistent_undo')
 	set undodir=~/.config/nvim/tmp/undo,.
 endif
 set colorcolumn=100
-set updatetime=500
+set updatetime=100
 set virtualedit=block
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -363,7 +364,7 @@ Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
 "Plug 'yuki-ycino/fzf-preview.vim'
 "Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 "Plug 'junegunn/fzf'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "<lead>+R run ranger
+" Pjug 'kevinhwang91/rnvimr', {'do': 'make sync'} "<lead>+R run ranger
 
 " Taglist
 Plug 'liuchengxu/vista.vim'
@@ -381,7 +382,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
 "Plug 'wellle/tmux-complete.vim'
 
 " Snippets
-Plug 'SirVer/ultisnips' "  # to do
+" Plug 'SirVer/ultisnips' "  # to do
 Plug 'honza/vim-snippets'
 
 " Undo Tree
@@ -544,29 +545,40 @@ nnoremap \gi :CocList gitignore
 " ===
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-texlab','coc-vimtex','coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax']
+let g:coc_global_extensions = ['coc-python', 'coc-texlab','coc-vimtex','coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax','coc-eslint','coc-tsserver']
+
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]	=~ '\s'
 endfunction
+
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
 			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+
 inoremap <silent><expr> <c-space> coc#refresh()
+" nnoremap <slient> <Leader>- <plug>(coc-diagnostic-prev)
+" nnoremap <slient> <Leader>= <plug>(coc-diagnostic-next)
+
+" Use leaderh to show documentation in preview window.
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
 	execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
@@ -594,11 +606,15 @@ nmap tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
 " coc-snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
-
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
-
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+let g:snips_author = 'Xinyu Yang'
 " ===
 " === MarkdownPreview
 " ===
@@ -764,11 +780,11 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 " ===
 " === Ultisnips
 " ===
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsJumpForwardTrigger="C-m>"
+" let g:UltiSnipsExpandTrigger="<C-l>"
+" let g:UltiSnipsJumpForwardTrigger="C-m>"
 " let g:UltiSnipsListSnippets="<C-m>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-let g:UltiSnipsEditSplit="tabdo"
+" let g:UltiSnipsEditSplit="tabdo"
 let g:tex_flavor = "latex"
 " inoremap <c-n> <nop>
 " let g:UltiSnipsExpandTrigger="<c-e>"

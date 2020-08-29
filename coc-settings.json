@@ -54,8 +54,8 @@
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
 	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<C-e>",
-	"list.previousKeymap": "<C-u>",
+	"list.nextKeymap": "<C-j>",
+	"list.previousKeymap": "<C-k>",
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
 		"typescript",
@@ -198,6 +198,13 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
+	"snippets.ultisnips.enable": true,
+	"snippets.ultisnips.directories": [
+		"UltiSnips",
+		"~/.config/nvim/UltiSnips",
+		"~/.config/nvim/plugged/vim-snippets/UltiSnips"
+	],
+
 	"languageserver": {
 		"latex": {
 			"command": "/usr/bin/texlab",
