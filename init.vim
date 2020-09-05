@@ -330,7 +330,6 @@ noremap <C-\> :call Getpdf()<CR>
 " ===
 
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'tiagofumo/dart-vim-flutter-layout'
 Plug 'RRethy/vim-illuminate'
 "Plug 'AndrewRadev/splitjoin.vim'
 "Plug 'KabbAmine/vCoolor.vim'
@@ -350,6 +349,7 @@ Plug 'bling/vim-bufferline'
 "Plug 'mhartington/oceanic-next'
 "Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ajmwagar/vim-deus'
+Plug 'crusoexia/vim-dracula'
 "Plug 'arzg/vim-colors-xcode'
 
 " Genreal Highlighter
@@ -442,6 +442,7 @@ Plug 'Chiel92/vim-autoformat' "format text by \f
 
 " For general writing
 Plug 'junegunn/goyo.vim' " toggle <leader>gy go to zenmode
+Plug 'ap/vim-css-color'
 "Plug 'reedes/vim-wordy'
 "Plug 'ron89/thesaurus_query.vim'
 
@@ -545,7 +546,7 @@ nnoremap \gi :CocList gitignore
 " ===
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-texlab','coc-vimtex','coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-sourcekit', 'coc-translator', 'coc-todolist', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax','coc-eslint','coc-tsserver']
+let g:coc_global_extensions = ['coc-python', 'coc-texlab','coc-vimtex','coc-html', 'coc-json', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-vimlsp', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-sourcekit', 'coc-translator', 'coc-yaml', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax','coc-eslint','coc-tsserver']
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -563,14 +564,14 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " nnoremap <slient> <Leader>- <plug>(coc-diagnostic-prev)
 " nnoremap <slient> <Leader>= <plug>(coc-diagnostic-next)
 
-" Use leaderh to show documentation in preview window.
+" Use leaderh to show documentation in preview window." leader h show documentation
 nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 
 " Remap for do codeAction of selected region
@@ -597,11 +598,6 @@ nmap tt :CocCommand explorer<CR>
 "
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
-
-" coctodolist
-nmap tn :CocCommand todolist.create<CR>
-nmap tl :CocList todolist<CR>
-nmap tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
 
 " coc-snippets
 " Use <C-l> for trigger snippet expand.
@@ -660,7 +656,6 @@ noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
-
 " ===
 " === FZF
 " ===
@@ -672,16 +667,7 @@ noremap <C-l> :Lines<CR>
 noremap <C-s> :Snippets<CR>
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
-
-
-" ===
-" === CTRLP (Dependency for omnisharp)
-" ===
-"let g:ctrlp_map = ''
-"let g:ctrlp_cmd = 'CtrlP'
-
 
 " ===
 " === vim-bookmarks
@@ -704,7 +690,6 @@ let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 1
 
-
 " ===
 " === Undotree
 " ===
@@ -715,13 +700,6 @@ let g:undotree_ShortIndicators = 1
 let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
-"function g:Undotree_CustomMap()""
-"	nmap <buffer> u <plug>UndotreeNextState""
-"	nmap <buffer> e <plug>UndotreePreviousState""
-"	nmap <buffer> U 5<plug>UndotreeNextState""
-"	nmap <buffer> E 5<plug>UndotreePreviousState""
-"endfunc""
-
 
 " ==
 " == vim-multiple-cursor
@@ -770,11 +748,6 @@ endfunction
 set statusline+=%{NearestMethodOrFunction()}
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
-
-" ===
-" === fzf-gitignore
-" ===
-" noremap <LEADER>gi :FzfGitignore<CR>
 
 
 " ===
@@ -907,21 +880,6 @@ let g:vmt_fence_closing_text = '/TOC'
 
 
 " ===
-" === rnvimr
-" ===
-let g:rnvimr_ex_enable = 1
-let g:rnvimr_pick_enable = 1
-nnoremap <silent> <LEADER>R :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-let g:rnvimr_layout = { 'relative': 'editor',
-			\ 'width': &columns,
-			\ 'height': &lines,
-			\ 'col': 0,
-			\ 'row': 0,
-			\ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
-
-
-" ===
 " === vim-subversive
 " ===
 nmap s <plug>(SubversiveSubstitute)
@@ -957,7 +915,6 @@ noremap \gp :AsyncRun git push<CR>
 " ===
 let g:asyncrun_open = 6
 
-
 " ===
 " === tcomment_vim
 " ===
@@ -966,13 +923,10 @@ nmap <Leader>/ gcc
 nmap <Leader>; g>$
 
 " ===================== End of Plugin Settings =====================
-
-
 " ===
 " === Necessary Commands to Execute
 " ===
 exec "nohlsearch"
-
 
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0

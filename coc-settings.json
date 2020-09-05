@@ -170,10 +170,16 @@
 	"tslint.autoFixOnSave": true,
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
+	"python.linting.enabled": true,
+	"python.linting.pylintArgs": ["--rcfile=~/.config/nvim/.pylintrc"],
+	"python.linting.pylintEnabled": true,
+	"python.linting.flake8Enabled": false,
+	"python.linting.lintOnSave": true,
+	"python.linting.pep8Enabled": false,
 	"python.formatting.provider": "yapf",
 	"python.formatting.yapfArgs": [
 		"--style",
-		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 2,COLUMN_LIMIT:100}"
 	],
 	"html.format.enable": true,
 	"javascript.referencesCodeLens.enable": true,
@@ -229,7 +235,7 @@
 			"command": "bash-language-server",
 			"args": ["start"],
 			"filetypes": ["sh"],
-			"ignoredRootPaths": []
+			"ignoredRootPaths": [""]
 		},
 		"ccls": {
 			"command": "ccls",
