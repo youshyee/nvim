@@ -1,8 +1,9 @@
 {
-	"coc.preferences.hoverTarget": "preview",
-	"coc.preferences.enableFloatHighlight": true,
-	"coc.preferences.snippetStatusText": "Ⓢ ",
-	"coc.preferences.extensionUpdateCheck": "daily",
+	//"coc.preferences.hoverTarget": "preview",
+	//"coc.preferences.enableFloatHighlight": true,
+	//"coc.preferences.snippetStatusText": "Ⓢ ",
+	//"coc.preferences.extensionUpdateCheck": "daily",
+	// suggestions
 	"suggest.detailMaxLength": 60,
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
@@ -41,6 +42,7 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
+	//diagnostics
 	"diagnostic.signOffset": 1,
 	"diagnostic.errorSign": "×",
 	"diagnostic.warningSign": "»",
@@ -53,6 +55,7 @@
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
+	//list
 	"list.previewHighlightGroup": "Statement",
 	"list.nextKeymap": "<C-j>",
 	"list.previousKeymap": "<C-k>",
@@ -73,6 +76,7 @@
 	"typescript.suggestionActions.enabled": true,
 	"prettier.formatterPriority": 1,
 	"typescript.format.enabled": true,
+	//explorer
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
@@ -150,6 +154,7 @@
 		"<<": "gitStage",
 		">>": "gitUnstage"
 	},
+	//git
 	"git.enableGutters": true,
 	"git.branchCharacter": "\uf408",
 	"git.addGBlameToBufferVar": false,
@@ -167,7 +172,7 @@
 	"git.changeRemovedSign.text": "▒",
 	"git.enableGlobalStatus": false,
 	"git.signOffset": 2,
-	"tslint.autoFixOnSave": true,
+	//python
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
 	"python.linting.enabled": true,
@@ -181,16 +186,23 @@
 		"--style",
 		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 2,COLUMN_LIMIT:100}"
 	],
+	// html js
 	"html.format.enable": true,
 	"javascript.referencesCodeLens.enable": true,
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
-	"todolist.autoUpload": true,
-	"todolist.promptForReminder": false,
 	"coc-actions.hideCursor": false,
 	"coc-actions.showActionKind": true,
+	//snippets
+	"snippets.ultisnips.enable": true,
+	"snippets.ultisnips.directories": [
+		"UltiSnips",
+		"~/.config/nvim/UltiSnips",
+		"~/.config/nvim/plugged/vim-snippets/UltiSnips"
+	],
+	// lsp
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
@@ -204,12 +216,6 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
-	"snippets.ultisnips.enable": true,
-	"snippets.ultisnips.directories": [
-		"UltiSnips",
-		"~/.config/nvim/UltiSnips",
-		"~/.config/nvim/plugged/vim-snippets/UltiSnips"
-	],
 
 	"languageserver": {
 		"latex": {
