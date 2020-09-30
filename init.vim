@@ -677,6 +677,7 @@ let g:which_key_map.t = {
 			\ 'p' : [':FloatermNew ipython'                            , 'python'],
 			\ 'm' : [':FloatermNew neomutt'                           , 'mail'],
 			\ 'r' : [':FloatermNew ranger'                            , 'ranger'],
+			\ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
 			\ 't' : [':FloatermToggle'                                , 'toggle'],
 			\ }
 
@@ -1062,24 +1063,15 @@ let g:tex_flavor = "latex"
 " === closetag
 " ===
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 0
 let g:closetag_regions = {
-			\ 'typescript.tsx': 'jsxRegion,tsxRegion',
-			\ 'javascript.jsx': 'jsxRegion',
-			\ }
-
-" Shortcut for closing tags, default is '>'
-"
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
 let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
 
 
 " ===
@@ -1414,6 +1406,11 @@ command! -nargs=0 AsyncTaskFzf call s:fzf_task()
 " === window-swap
 " ===
 let g:windowswap_map_keys = 0 "prevent default bindings
+
+" ===
+" === auto-pair
+" ===
+let g:AutoPairsMapSpace = 0 "prevent default bindings
 
 " ===
 " === tcomment_vim
