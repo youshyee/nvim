@@ -58,7 +58,7 @@ set shiftwidth=2
 set autoindent
 set list
 set listchars=tab:\|\ ,trail:▫
-set scrolloff=4
+set scrolloff=8
 set ttimeoutlen=0
 set notimeout
 set viewoptions=cursor,folds,slash,unix
@@ -234,44 +234,44 @@ autocmd BufEnter * silent! lcd %:p:h
 " Compile function
 noremap <C-R> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-		" elseif &filetype == 'vim'
-		"		exec "w"
-		"		exec ":source $MYVIMRC"
-	elseif &filetype == 'cpp'
-		set splitbelow
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:sp
-		:res -15
-		:term ./%<
-	elseif &filetype == 'java'
-		exec "!javac %"
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
-	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
-	elseif &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'tex'
-		silent! exec "VimtexStop"
-		silent! exec "VimtexCompile"
-	elseif &filetype == 'javascript'
-		set splitbelow
-		:sp
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-	elseif &filetype == 'go'
-		set splitbelow
-		:sp
-		:term go run .
-	endif
+		exec "w"
+		if &filetype == 'c'
+			exec "!g++ % -o %<"
+			exec "!time ./%<"
+			" elseif &filetype == 'vim'
+			"		exec "w"
+			"		exec ":source $MYVIMRC"
+		elseif &filetype == 'cpp'
+			set splitbelow
+			exec "!g++ -std=c++11 % -Wall -o %<"
+			:sp
+			:res -15
+			:term ./%<
+		elseif &filetype == 'java'
+			exec "!javac %"
+			exec "!time java %<"
+		elseif &filetype == 'sh'
+			:!time bash %
+		elseif &filetype == 'python'
+			set splitbelow
+			:sp
+			:term python3 %
+		elseif &filetype == 'html'
+			silent! exec "!".g:mkdp_browser." % &"
+		elseif &filetype == 'markdown'
+			exec "MarkdownPreview"
+		elseif &filetype == 'tex'
+			silent! exec "VimtexStop"
+			silent! exec "VimtexCompile"
+		elseif &filetype == 'javascript'
+			set splitbelow
+			:sp
+			:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+		elseif &filetype == 'go'
+			set splitbelow
+			:sp
+			:term go run .
+		endif
 endfunc
 
 func! Pandocmd2beamer()
@@ -322,6 +322,8 @@ Plug 'skywind3000/asyncrun.vim'
 "
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
+Plug 'ojroques/vim-scrollstatus'
+
 Plug 'bling/vim-bufferline'
 Plug 'ajmwagar/vim-deus'
 Plug 'crusoexia/vim-dracula'
@@ -403,7 +405,7 @@ Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter
 " Terminal
 Plug 'voldikss/vim-floaterm'
 " Plug 'terryma/vim-multiple-cursors'
-
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Formatter
 Plug 'Chiel92/vim-autoformat' "format text by \f
 
@@ -715,6 +717,12 @@ let g:python_highlight_all=1
 " === airline.vim
 " ===
 let g:airline_powerline_fonts = 1
+let g:airline_section_x = '%{ScrollStatus()} '
+let g:airline_section_y = airline#section#create_right(['filetype'])
+let g:airline_section_z = airline#section#create([
+            \ '%#__accent_bold#%3l%#__restore__#/%L', ' ',
+            \ '%#__accent_bold#%3v%#__restore__#/%3{virtcol("$") - 1}',
+            \ ])
 
 
 " ==
@@ -870,6 +878,7 @@ let g:mkdp_browser = "chromium"
 " noremap <LEADER>tm <CR>
 let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
+let g:table_mode_map_prefix = 'zt'
 " ===
 " === FZF
 " ===
@@ -1357,6 +1366,7 @@ let g:startify_enable_special = 0
 " === AsyncRun
 " ===
 noremap \gp :AsyncRun git push<CR>
+noremap \gp :AsyncRun gmp<CR>
 
 " urlview
 " noremap <C-u> :sp !urlview<CR> %
