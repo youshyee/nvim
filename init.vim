@@ -376,7 +376,8 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'metakirby5/codi.vim'
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'dkarter/bullets.vim'
@@ -525,6 +526,8 @@ let g:which_key_map.a = {
 			\ 'p' : [':call Getpdf()'    , 'get pdf'],
 			\ 'r' : [':call CompileRunGcc()'    , 'run'],
 			\ 'P' : [':call Pandocmd2beamer()'    , 'get beamer'],
+			\ 'm' : [':InstantMarkdownPreview'    , 'md preview'],
+			\ 'M' : [':InstantMarkdownStop'    , 'md preview stop'],
 			\ 't' : [':TableModeToggle'    , 'table mode!'],
 			\ 's' : [':let @/ = ""'            , 'remove search highlight'],
 			\ 'v' : [':Codi'                   , 'codi on'],
@@ -849,29 +852,40 @@ let g:snips_author = 'Xinyu Yang'
 " ===
 " === MarkdownPreview
 " ===
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
-let g:mkdp_open_ip = ''
-let g:mkdp_echo_preview_url = 0
-let g:mkdp_browserfunc = ''
-let g:mkdp_preview_options = {
-			\ 'mkit': {},
-			\ 'katex': {},
-			\ 'uml': {},
-			\ 'maid': {},
-			\ 'disable_sync_scroll': 0,
-			\ 'sync_scroll_type': 'middle',
-			\ 'hide_yaml_meta': 1
-			\ }
-let g:mkdp_markdown_css = ''
-let g:mkdp_highlight_css = ''
-let g:mkdp_port = ''
-let g:mkdp_page_title = '「${name}」'
-let g:mkdp_browser = "chromium"
+" let g:mkdp_auto_start = 0
+" let g:mkdp_auto_close = 1
+" let g:mkdp_refresh_slow = 0
+" let g:mkdp_command_for_global = 0
+" let g:mkdp_open_to_the_world = 0
+" let g:mkdp_open_ip = ''
+" let g:mkdp_echo_preview_url = 0
+" let g:mkdp_browserfunc = ''
+" let g:mkdp_preview_options = {
+" 			\ 'mkit': {},
+" 			\ 'katex': {},
+" 			\ 'uml': {},
+" 			\ 'maid': {},
+" 			\ 'disable_sync_scroll': 0,
+" 			\ 'sync_scroll_type': 'middle',
+" 			\ 'hide_yaml_meta': 1
+" 			\ }
+" let g:mkdp_markdown_css = ''
+" let g:mkdp_highlight_css = ''
+" let g:mkdp_port = ''
+" let g:mkdp_page_title = '「${name}」'
+" let g:mkdp_browser = "chromium"
 
+" ===
+" === vim-instant-markdown
+" ===
+let g:instant_markdown_slow = 0
+let g:instant_markdown_autostart = 0
+" let g:instant_markdown_open_to_the_world = 1
+" let g:instant_markdown_allow_unsafe_content = 1
+" let g:instant_markdown_allow_external_content = 0
+" let g:instant_markdown_mathjax = 1
+let g:instant_markdown_autoscroll = 1
+let g:instant_markdown_browser = "brave --new-window"
 " ===
 " === vim-table-mode
 " ===
@@ -1366,7 +1380,7 @@ let g:startify_enable_special = 0
 " === AsyncRun
 " ===
 noremap \gp :AsyncRun git push<CR>
-noremap \gp :AsyncRun gmp<CR>
+noremap \go :AsyncRun gmp<CR>
 
 " urlview
 " noremap <C-u> :sp !urlview<CR> %
