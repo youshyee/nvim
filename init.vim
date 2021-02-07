@@ -504,17 +504,17 @@ nnoremap zz <Esc>/<++><CR>:nohlsearch<CR>c4l
 nnoremap ,. <Esc>a<++><Esc>
 inoremap ,. <++>
 " Single mappings
-let g:which_key_map['.'] = [ ':Commands'                          , 'commands' ]
-let g:which_key_map['['] = [ 'bprevious'                             , 'previous-buffer' ]
 let g:which_key_map[']'] = [ 'bnext'                             , 'next-buffer' ]
+let g:which_key_map['['] = [ 'bprevious'                             , 'previous-buffer' ]
+let g:which_key_map['.'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['c'] = [ ':set spell!'                        , 'spell check']
 let g:which_key_map['d'] = [ ':Bdelete'                        , 'delete-buffer']
 let g:which_key_map['f'] = [ ':Files'                             , 'search files' ]
+let g:which_key_map['k'] = [ ':call Show_documentation()'     , 'show doc']
 let g:which_key_map['l'] = [ ':Lines'               , 'line search' ]
 let g:which_key_map['r'] = [ ':RnvimrToggle'                      , 'ranger' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['y'] = [ ':CocList -A --normal yank'     , 'yank list']
-let g:which_key_map['k'] = [ ':call Show_documentation()'     , 'show doc']
 let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
 
 " Group mappings
@@ -523,15 +523,15 @@ let g:which_key_map.a = {
 			\ 'name' : '+actions' ,
 			\ 'a' : ['<Plug>(coc-codeaction)'              , 'coc action'],
 			\ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'coc vaction'],
-			\ 'p' : [':call Getpdf()'    , 'get pdf'],
-			\ 'r' : [':call CompileRunGcc()'    , 'run'],
-			\ 'P' : [':call Pandocmd2beamer()'    , 'get beamer'],
 			\ 'm' : [':InstantMarkdownPreview'    , 'md preview'],
 			\ 'M' : [':InstantMarkdownStop'    , 'md preview stop'],
-			\ 't' : [':TableModeToggle'    , 'table mode!'],
+			\ 'p' : [':call Getpdf()'    , 'get pdf'],
+			\ 'P' : [':call Pandocmd2beamer()'    , 'get beamer'],
+			\ 'r' : [':call CompileRunGcc()'    , 'run'],
 			\ 's' : [':let @/ = ""'            , 'remove search highlight'],
-			\ 'v' : [':Codi'                   , 'codi on'],
+			\ 't' : [':TableModeToggle'    , 'table mode!'],
 			\ 'V' : [':Codi!'                  , 'codi off'],
+			\ 'v' : [':Codi'                   , 'codi on'],
 			\ }
 
 " w is for window
@@ -653,7 +653,7 @@ let g:which_key_map.j = {
 			\ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
 			\ 'I' : [':CocList diagnostics'                , 'diagnostics'],
 			\ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-			\ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
+			\ 'l' : [':CocList'         , 'Coclist'],
 			\ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
 			\ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
 			\ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
@@ -684,6 +684,7 @@ let g:which_key_map.t = {
 			\ 'r' : [':FloatermNew ranger'                            , 'ranger'],
 			\ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
 			\ 't' : [':FloatermToggle'                                , 'toggle'],
+			\ 'v' : [':vsplit term://fish'                                , 'vsplit term'],
 			\ }
 
 " T is for terminal
@@ -1235,6 +1236,7 @@ let g:rnvimr_ranger_cmd = 'ranger --cmd="set column_ratios 1,1"'
 let g:rnvimr_presets = [
 			\ {'width': 0.800, 'height': 0.800}]
 
+let g:rnvim_action= {'<C-t>': 'NvimEdit tabedit','gw': 'JumpNvimCwd','yw': 'EmitRangerCwd'}
 " ===
 " === xtabline
 " ===
