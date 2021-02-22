@@ -47,7 +47,7 @@ syntax on
 set number
 set hidden          " Required to keep multiple buffers open multiple buffers
 set pumheight=10    " Makes popup menu smaller
-set cmdheight=2     " More space for displaying messages
+" set cmdheight=2     " More space for displaying messages
 set laststatus=2    " Always display the status line
 set background=dark " tell vim what the background color looks like
 set relativenumber
@@ -503,19 +503,20 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 nnoremap zz <Esc>/<++><CR>:nohlsearch<CR>c4l
 nnoremap ,. <Esc>a<++><Esc>
 inoremap ,. <++>
+
 " Single mappings
-let g:which_key_map[']'] = [ 'bnext'                             , 'next-buffer' ]
-let g:which_key_map['['] = [ 'bprevious'                             , 'previous-buffer' ]
-let g:which_key_map['.'] = [ ':Commands'                          , 'commands' ]
-let g:which_key_map['c'] = [ ':set spell!'                        , 'spell check']
-let g:which_key_map['d'] = [ ':Bdelete'                        , 'delete-buffer']
-let g:which_key_map['f'] = [ ':Files'                             , 'search files' ]
-let g:which_key_map['k'] = [ ':call Show_documentation()'     , 'show doc']
-let g:which_key_map['l'] = [ ':Lines'               , 'line search' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle'                      , 'ranger' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
-let g:which_key_map['y'] = [ ':CocList -A --normal yank'     , 'yank list']
-let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
+let g:which_key_map[']'] = [ 'bnext'                      , 'next-buffer' ]
+let g:which_key_map['['] = [ 'bprevious'                  , 'previous-buffer' ]
+let g:which_key_map['c'] = [ ':set spell!'                , 'spell check']
+let g:which_key_map['d'] = [ ':Bdelete'                   , 'delete-buffer']
+let g:which_key_map['b'] = [':Buffers'                    , 'open buffers']
+let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
+let g:which_key_map['k'] = [ ':call Show_documentation()' , 'show doc']
+let g:which_key_map['l'] = [ ':Lines'                     , 'line search' ]
+let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
+let g:which_key_map['u'] = [ ':UndotreeToggle'            , 'undo tree']
+let g:which_key_map['y'] = [ ':CocList -A --normal yank'  , 'yank list']
+let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
 
 " Group mappings
 " a is for actions
@@ -544,24 +545,6 @@ let g:which_key_map.w = {
 			\ 'm' : [':call WindowSwap#EasyWindowSwap()'  ,'move window'],
 			\ }
 
-
-" k is for task
-" let g:which_key_map.k = {
-"				\ 'name' : '+task' ,
-"				\ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-"				\ 'b' : [':AsyncTask project-build'     , 'build project'],
-"				\ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-"				\ 'f' : [':AsyncTaskFzf'                , 'find task'],
-"				\ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-"				\ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-"				\ 'l' : [':CocList tasks'               , 'list tasks'],
-"				\ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-"				\ 'o' : [':copen'                       , 'open task view'],
-"				\ 'r' : [':AsyncTask file-run'          , 'run file'],
-"				\ 'p' : [':AsyncTask project-run'       , 'run project'],
-"				\ 'x' : [':cclose'                      , 'close task view'],
-"				\ }
-
 " s is for search
 let g:which_key_map.s = {
 			\ 'name' : '+search' ,
@@ -569,7 +552,6 @@ let g:which_key_map.s = {
 			\ ';' : [':Commands'              , 'commands'],
 			\ 'a' : [':Ag'                    , 'text Ag'],
 			\ 'b' : [':BLines'                , 'current buffer'],
-			\ 'B' : [':Buffers'               , 'open buffers'],
 			\ 'c' : [':Commits'               , 'commits'],
 			\ 'C' : [':BCommits'              , 'buffer commits'],
 			\ 'f' : [':Files'                 , 'files'],
@@ -590,49 +572,33 @@ let g:which_key_map.s = {
 			\ 'y' : [':Filetypes'             , 'file types'],
 			\ 'z' : [':FZF'                   , 'FZF'],
 			\ }
-" \ 's' : [':Snippets'     , 'snippets'],
 
 " g is for git
 let g:which_key_map.g = {
-			\ 'name' : '+git' ,
-			\ 'a' : [':Git add .'                        , 'add all'],
-			\ 'A' : [':Git add %'                        , 'add current'],
-			\ 'b' : [':Git blame'                        , 'blame'],
-			\ 'B' : [':GBrowse'                          , 'browse'],
-			\ 'd' : [':Git diff'                         , 'diff'],
-			\ 'D' : [':Gdiffsplit'                       , 'diff split'],
-			\ 'f' : [':GitGutterFold'                    , 'hunk fold'],
-			\ 'g' : [':GGrep'                            , 'git grep'],
-			\ 'G' : [':Gstatus'                          , 'status'],
-			\ 'H' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
-			\ 'h' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
-			\ 'i' : [':CocList gitignore'                , 'gitignore'],
-			\ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
-			\ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
-			\ 'l' : [':Git log'                          , 'log'],
-			\ 'm' : [':vert Git commit -av'             , 'message'],
-			\ 'p' : [':AsyncRun git push'                         , 'push'],
-			\ 'o' : [':AsyncRun gmp'                         , 'autopush'],
-			\ 'P' : [':AsyncRun git pull'                         , 'pull'],
-			\ 'r' : [':GRemove'                          , 'remove'],
-			\ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-			\ 's' : [':!git status'                      , 'status'],
-			\ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
-			\ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
+			\ 'name' : '+git'                         ,
+			\ 'a' : [':Git add .'                     , 'add all']         ,
+			\ 'A' : [':Git add %'                     , 'add current']     ,
+			\ 'b' : [':Git blame'                     , 'blame']           ,
+			\ 'B' : [':GBrowse'                       , 'browse']          ,
+			\ 'D' : [':Git diff'                      , 'diff']            ,
+			\ 'd' : [':Gdiffsplit'                    , 'diff split']      ,
+			\ 'f' : [':GitGutterFold'                 , 'hunk fold']       ,
+			\ 'g' : [':GGrep'                         , 'git grep']        ,
+			\ 'H' : [':GitGutterLineHighlightsToggle' , 'highlight hunks'] ,
+			\ 'h' : ['<Plug>(GitGutterPreviewHunk)'   , 'preview hunk']    ,
+			\ 'i' : [':CocList gitignore'             , 'gitignore']       ,
+			\ 'j' : ['<Plug>(GitGutterNextHunk)'      , 'next hunk']       ,
+			\ 'k' : ['<Plug>(GitGutterPrevHunk)'      , 'prev hunk']       ,
+			\ 'l' : [':Git log'                       , 'log']             ,
+			\ 'm' : [':vert Git commit -av'           , 'message']         ,
+			\ 'p' : [':AsyncRun git push'             , 'push']            ,
+			\ 'o' : [':AsyncRun gmp'                  , 'autopush']        ,
+			\ 'P' : [':AsyncRun git pull'             , 'pull']            ,
+			\ 'S' : ['<Plug>(GitGutterStageHunk)'     , 'stage hunk']      ,
+			\ 's' : [':Gstatus'                       , 'status']          ,
+			\ 't' : [':GitGutterSignsToggle'          , 'toggle signs']    ,
+			\ 'u' : ['<Plug>(GitGutterUndoHunk)'      , 'undo hunk']       ,
 			\ }
-
-" let g:which_key_map.G = {
-"				\ 'name' : '+gist' ,
-"				\ 'a' : [':Gist -a'                          , 'post gist anon'],
-"				\ 'b' : [':Gist -b'                          , 'post gist browser'],
-"				\ 'd' : [':Gist -d'                          , 'delete gist'],
-"				\ 'e' : [':Gist -e'                          , 'edit gist'],
-"				\ 'l' : [':Gist -l'                          , 'list public gists'],
-"				\ 's' : [':Gist -ls'                         , 'list starred gists'],
-"				\ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-"				\ 'p' : [':Gist -P'                          , 'post public gist '],
-"				\ 'P' : [':Gist -p'                          , 'post private gist '],
-"				\ }
 
 " p is for language server protocol
 let g:which_key_map.j = {
@@ -649,7 +615,6 @@ let g:which_key_map.j = {
 			\ 'e' : [':CocList extensions'                 , 'extensions'],
 			\ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
 			\ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-			\ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
 			\ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
 			\ 'I' : [':CocList diagnostics'                , 'diagnostics'],
 			\ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
@@ -704,7 +669,6 @@ let g:which_key_map.T = {
 			\ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
 			\ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
 			\ }
-
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
@@ -1040,26 +1004,6 @@ let g:bullets_enabled_file_types = [
 			\]
 
 
-" ===
-" === Vista.vim
-" ===
-" noremap <C-t> :silent! Vista finder coc<CR>
-" let g:vista_default_executive = 'ctags'
-" let g:vista_fzf_preview = ['right:50%']
-" " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
-" let g:vista#renderer#enable_icon = 1
-"
-" " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
-" let g:vista#renderer#icons = {
-"				\   "function": "\uf794",
-"				\   "variable": "\uf71b",
-"				\  }
-" function! NearestMethodOrFunction() abort
-"		return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-" set statusline+=%{NearestMethodOrFunction()}
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
 
 
 " ===
@@ -1170,8 +1114,6 @@ vmap ta :Tabularize /
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 let g:rainbow_conf = {'guis': ['bold']}
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-" \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
 let g:rainbow_conf = {
 			\	'guifgs': ['#858580', '#8FBCBB', '#D08770', '#A3BE8C', '#EBCB8B', '#B48EAD', '#80a880', '#887070'],
 			\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
