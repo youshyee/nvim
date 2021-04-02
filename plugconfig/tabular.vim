@@ -1,0 +1,5 @@
+
+" ===
+" === tabular
+" ===
+vmap ta :Tabularize /
