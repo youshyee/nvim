@@ -11,6 +11,13 @@ Plug 'tomtom/tcomment_vim' " in <space>/ to comment a line or <space>; to commen
 " Repeat stuff
 Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion' " toggle ' quick locate by letter
+Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
+Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'svermeulen/vim-subversive' " use ss to replace line with place holder <++> use s<motion> to replace with <++>
+
+if exists('g:vscode')
+	Plug 'machakann/vim-highlightedyank'
+endif
 
 if !exists('g:vscode')
 	Plug 'RRethy/vim-illuminate'
@@ -98,11 +105,8 @@ if !exists('g:vscode')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'moll/vim-bbye'
 	Plug 'theniceboy/antovim' "  'gs' to switch true to false
-	Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
-	Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
 	Plug 'godlygeek/tabular' " :Tabularize <regex> to align
 	" Plug 'Konfekt/FastFold'
-	Plug 'svermeulen/vim-subversive' " use ss to replace line with place holder <++> use s<motion> to replace with <++>
 	" Terminal
 	Plug 'voldikss/vim-floaterm'
 	" Plug 'terryma/vim-multiple-cursors'

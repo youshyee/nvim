@@ -54,9 +54,11 @@ endif
 "
 " ===================== Start of Plugin Settings =====================
 source $HOME/.config/nvim/plugconfig/easymotion.vim
+source $HOME/.config/nvim/plugconfig/subversive.vim
 
 if exists('g:vscode') " vscode only
 	source $HOME/.config/nvim/vscodesetting.vim
+	source $HOME/.config/nvim/plugconfig/highlightyank.vim
 endif
 if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/which-key.vim
@@ -83,7 +85,6 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/polyglot.vim
 	source $HOME/.config/nvim/plugconfig/suda.vim
 	source $HOME/.config/nvim/plugconfig/markdowntoc.vim
-	source $HOME/.config/nvim/plugconfig/subversive.vim
 	source $HOME/.config/nvim/plugconfig/bullets.vim
 	source $HOME/.config/nvim/plugconfig/illuminate.vim
 	source $HOME/.config/nvim/plugconfig/rooter.vim
@@ -91,7 +92,6 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/asynctasks.vim
 	source $HOME/.config/nvim/plugconfig/tcomment.vim
 	source $HOME/.config/nvim/plugconfig/floatterm.vim
-
 	" ===
 	" === others
 	" ===

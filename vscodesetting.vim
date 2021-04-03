@@ -90,7 +90,7 @@ nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
 
 " Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
 xnoremap <expr> <C-/> <SID>vscodeCommentary()
-nnoremap <expr> <C-/> <SID>vscodeCommentary() . '_'
+nnoremap <expr> <C-/> <SID>vscodeCommentary()
 
 nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>
 
@@ -98,8 +98,13 @@ nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 xnoremap <silent> <Space> :<C-u>call <SID>openWhichKeyInVisualMode()<CR>
 
 xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
+xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
 
-xmap gc  <Plug>VSCodeCommentary
-nmap gc  <Plug>VSCodeCommentary
-omap gc  <Plug>VSCodeCommentary
-nmap gcc <Plug>VSCodeCommentaryLine
+nnoremap <silent> Q :call VSCodeNotify('workbench.action.closeWindow')<CR>
+nnoremap <silent> S :call VSCodeNotify('workbench.action.files.save')<CR>
+
+nnoremap <silent> za :call VSCodeNotify('editor.toggleFold')<CR>
+
+xmap z;  <Plug>VSCodeCommentary
+nmap z;  <Plug>VSCodeCommentary
+nmap z/ <Plug>VSCodeCommentaryLine
