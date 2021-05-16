@@ -25,11 +25,10 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map[']'] = [ 'bnext'                      , 'next-buffer' ]
 let g:which_key_map['['] = [ 'bprevious'                  , 'previous-buffer' ]
-let g:which_key_map['c'] = [ ':set spell!'                , 'spell check']
-let g:which_key_map['d'] = [ ':Bdelete'                   , 'delete-buffer']
+let g:which_key_map[']'] = [ 'bnext'                      , 'next-buffer' ]
 let g:which_key_map['b'] = [':Buffers'                    , 'open buffers']
+let g:which_key_map['c'] = [ ':set spell!'                , 'spell check']
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
 let g:which_key_map['k'] = [ ':call Show_documentation()' , 'show doc']
 let g:which_key_map['l'] = [ ':Lines'                     , 'line search' ]
@@ -42,17 +41,35 @@ let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
 " a is for actions
 let g:which_key_map.a = {
 			\ 'name' : '+actions' ,
-			\ 'a' : ['<Plug>(coc-codeaction)'              , 'coc action'],
-			\ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'coc vaction'],
-			\ 'm' : [':InstantMarkdownPreview'    , 'md preview'],
-			\ 'M' : [':InstantMarkdownStop'    , 'md preview stop'],
-			\ 'p' : [':call Getpdf()'    , 'get pdf'],
-			\ 'P' : [':call Pandocmd2beamer()'    , 'get beamer'],
-			\ 'r' : [':call CompileRunGcc()'    , 'run'],
-			\ 's' : [':let @/ = ""'            , 'remove search highlight'],
-			\ 't' : [':TableModeToggle'    , 'table mode!'],
-			\ 'V' : [':Codi!'                  , 'codi off'],
-			\ 'v' : [':Codi'                   , 'codi on'],
+			\ 'A' : ['<Plug>(coc-codeaction-selected)' , 'coc vaction']             ,
+			\ 'M' : [':InstantMarkdownStop'            , 'md preview stop']         ,
+			\ 'P' : [':call Pandocmd2beamer()'         , 'get beamer']              ,
+			\ 'V' : [':Codi!'                          , 'codi off']                ,
+			\ 'a' : ['<Plug>(coc-codeaction)'          , 'coc action']              ,
+			\ 'd' : [':Bdelete'                        , 'delete buffer']           ,
+			\ 'm' : [':InstantMarkdownPreview'         , 'md preview']              ,
+			\ 'p' : [':call Getpdf()'                  , 'get pdf']                 ,
+			\ 'r' : [':call CompileRunGcc()'           , 'run']                     ,
+			\ 's' : [':let @/ = ""'                    , 'remove search highlight'] ,
+			\ 't' : [':TableModeToggle'                , 'table mode!']             ,
+			\ 'v' : [':Codi'                           , 'codi on']                 ,
+			\ }
+
+" d is for debug
+let g:which_key_map.d = {
+			\ 'name' : '+debug' ,
+			\ 'R' : [':call vimspector#Restart()'                  , 'restart' ]              ,
+			\ 'S' : [':call vimspector#StepOut()'                  , 'stepout' ]              ,
+			\ 'b' : [':call vimspector#ToggleBreakpoint()'         , 'toggle breakpoint']     ,
+			\ 'c' : ['<Plug>VimspectorToggleConditionalBreakpoint' , 'condition breakpoint' ] ,
+			\ 'd' : [':call vimspector#Continue()'                 , 'continue' ]             ,
+			\ 'e' : ['<Plug>VimspectorBalloonEval'                 , 'evaluate' ]             ,
+			\ 'l' : [':call vimspector#Launch()'                   , 'Launch']                ,
+			\ 'o' : [':call vimspector#StepOver()'                 , 'step over' ]            ,
+			\ 'q' : [':call vimspector#Reset()'                    , 'stop' ]                 ,
+			\ 'r' : [':call vimspector#RunToCursor()'              , 'runto' ]                ,
+			\ 's' : [':call vimspector#StepInto()'                 , 'stepinto' ]             ,
+			\ 'w' : [':call vimspector#AddWatch()'                 , 'add watch']             ,
 			\ }
 
 " w is for window
@@ -62,7 +79,8 @@ let g:which_key_map.w = {
 			\ 'r' : ['<C-W>v'                             , 'split right'],
 			\ '=' : ['<C-W>='                             , 'balance windows' ],
 			\ 't' : [':tabe'                             , 'new tab'],
-			\ 'm' : [':call WindowSwap#EasyWindowSwap()'  ,'move window'],
+			\ 'w' : [':MaximizerToggle'                             , 'toggle wind max'],
+			\ 's' : [':call WindowSwap#EasyWindowSwap()'  ,'swap window'],
 			\ }
 
 " s is for search

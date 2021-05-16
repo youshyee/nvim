@@ -53,7 +53,7 @@ if !exists('g:vscode')
 	" Plug 'liuchengxu/vista.vim'
 
 	" Debugger
-	"Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
+	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python'}
 
 	" Auto Complete
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
@@ -72,6 +72,10 @@ if !exists('g:vscode')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'mattn/vim-gist'
 
+	Plug 'szw/vim-maximizer'
+
+
+
 	" Tex
 	Plug 'lervag/vimtex'
 
@@ -81,7 +85,7 @@ if !exists('g:vscode')
 	" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 	"Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 	"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-	Plug 'tweekmonster/braceless.vim'
+	" Plug 'tweekmonster/braceless.vim'
 	" Interactive code
 	Plug 'metakirby5/codi.vim'
 
@@ -98,7 +102,7 @@ if !exists('g:vscode')
 	Plug 'mattn/emmet-vim'
 
 	" Other filetypes
-	Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
+	" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 
 	" Editor Enhancement
 	"Plug 'Raimondi/delimitMate'

@@ -78,6 +78,7 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/closetag.vim
 	source $HOME/.config/nvim/plugconfig/vimtex.vim
 	source $HOME/.config/nvim/plugconfig/goyo.vim
+	source $HOME/.config/nvim/plugconfig/maximizer.vim
 	source $HOME/.config/nvim/plugconfig/tabular.vim
 	source $HOME/.config/nvim/plugconfig/rainbow.vim
 	source $HOME/.config/nvim/plugconfig/ranger.vim

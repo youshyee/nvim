@@ -1,0 +1,27 @@
+{
+	"configurations": {
+		"default debug": {
+			"adapter": "debugpy",
+			"configuration": {
+				// modify here
+				"python": "./run.sh", // exe path
+				// "python": "/home/youshyee/.conda/envs/torch/bin/python",
+				"args": ["*${CommandLineArgs}"],
+				"program": "${file}",
+				// modify here
+
+				"request": "launch",
+				"type": "python",
+				"cwd": "${workspaceRoot}",
+				"stopOnEntry": true,
+				"console": "integratedTerminal"
+			},
+			"breakpoints": {
+				"exception": {
+					"raised": "N",
+					"uncaught": ""
+				}
+			}
+		}
+	}
+}
