@@ -37,8 +37,9 @@ if !exists('g:vscode')
 	Plug 'bling/vim-bufferline'
 	Plug 'ajmwagar/vim-deus'
 	Plug 'crusoexia/vim-dracula'
+
 	" Swap windows
-	Plug 'wesQ3/vim-windowswap'
+	" Plug 'wesQ3/vim-windowswap'
 
 	" Genreal Highlighter
 	" Plug 'jaxbot/semantic-highlight.vim'
@@ -70,7 +71,7 @@ if !exists('g:vscode')
 	" Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify'
 	Plug 'airblade/vim-gitgutter'
-	Plug 'mattn/vim-gist'
+	" Plug 'mattn/vim-gist'
 
 	Plug 'szw/vim-maximizer'
 
@@ -153,3 +154,58 @@ if !exists('g:vscode')
 endif
 
 call plug#end()
+
+
+
+"
+" ===================== Start of Plugin Settings =====================
+source $HOME/.config/nvim/plugconfig/easymotion.vim
+source $HOME/.config/nvim/plugconfig/subversive.vim
+
+if exists('g:vscode') " vscode only
+	source $HOME/.config/nvim/vscodesetting.vim
+	source $HOME/.config/nvim/plugconfig/highlightyank.vim
+endif
+if !exists('g:vscode') " vim only
+	source $HOME/.config/nvim/plugconfig/which-key.vim
+	source $HOME/.config/nvim/plugconfig/airline.vim
+	source $HOME/.config/nvim/plugconfig/gitgutter.vim
+	source $HOME/.config/nvim/plugconfig/fugitive.vim
+	source $HOME/.config/nvim/plugconfig/instantmarkdownpreview.vim
+	source $HOME/.config/nvim/plugconfig/coc.vim
+	source $HOME/.config/nvim/plugconfig/vimtablemode.vim
+	source $HOME/.config/nvim/plugconfig/fzf.vim
+	source $HOME/.config/nvim/plugconfig/codi.vim
+	source $HOME/.config/nvim/plugconfig/vimbookmark.vim
+	source $HOME/.config/nvim/plugconfig/undotree.vim
+	source $HOME/.config/nvim/plugconfig/multicursor.vim
+	source $HOME/.config/nvim/plugconfig/bullet.vim
+	source $HOME/.config/nvim/plugconfig/ultisnips.vim
+	source $HOME/.config/nvim/plugconfig/closetag.vim
+	source $HOME/.config/nvim/plugconfig/vimtex.vim
+	source $HOME/.config/nvim/plugconfig/goyo.vim
+	source $HOME/.config/nvim/plugconfig/maximizer.vim
+	source $HOME/.config/nvim/plugconfig/tabular.vim
+	source $HOME/.config/nvim/plugconfig/rainbow.vim
+	source $HOME/.config/nvim/plugconfig/ranger.vim
+	source $HOME/.config/nvim/plugconfig/xtabline.vim
+	source $HOME/.config/nvim/plugconfig/polyglot.vim
+	" source $HOME/.config/nvim/plugconfig/suda.vim
+	source $HOME/.config/nvim/plugconfig/markdowntoc.vim
+	source $HOME/.config/nvim/plugconfig/bullets.vim
+	source $HOME/.config/nvim/plugconfig/illuminate.vim
+	source $HOME/.config/nvim/plugconfig/rooter.vim
+	source $HOME/.config/nvim/plugconfig/startify.vim
+	source $HOME/.config/nvim/plugconfig/asynctasks.vim
+	source $HOME/.config/nvim/plugconfig/tcomment.vim
+	source $HOME/.config/nvim/plugconfig/floatterm.vim
+
+	" ===
+	" === others
+	" ===
+	let g:windowswap_map_keys = 0 "prevent default bindings
+	let g:AutoPairsMapSpace = 0 "prevent default bindings
+	let g:python_highlight_all=1
+endif
+
+" ===================== End of Plugin Settings =====================

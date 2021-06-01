@@ -11,7 +11,6 @@ let g:coc_global_extensions = [
 			\'coc-vimlsp',
 			\'coc-lists',
 			\'coc-git',
-			\'coc-explorer',
 			\'coc-sourcekit',
 			\'coc-translator',
 			\'coc-yaml',
@@ -84,10 +83,10 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "
 " coc explore
-nmap tt :CocCommand explorer<CR>
+" nmap tt :CocCommand explorer<CR>
 "
 " coc-translator
-nmap ts <Plug>(coc-translator-p)
+nmap zs <Plug>(coc-translator-p)
 
 " coc-snippets
 " Use <C-l> for trigger snippet expand.

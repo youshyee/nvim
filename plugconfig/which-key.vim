@@ -36,6 +36,7 @@ let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'            , 'undo tree']
 let g:which_key_map['y'] = [ ':CocList -A --normal yank'  , 'yank list']
 let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
+let g:which_key_map['q'] = [':Bdelete'                        , 'delete buffer']
 
 " Group mappings
 " a is for actions
@@ -46,7 +47,6 @@ let g:which_key_map.a = {
 			\ 'P' : [':call Pandocmd2beamer()'         , 'get beamer']              ,
 			\ 'V' : [':Codi!'                          , 'codi off']                ,
 			\ 'a' : ['<Plug>(coc-codeaction)'          , 'coc action']              ,
-			\ 'd' : [':Bdelete'                        , 'delete buffer']           ,
 			\ 'm' : [':InstantMarkdownPreview'         , 'md preview']              ,
 			\ 'p' : [':call Getpdf()'                  , 'get pdf']                 ,
 			\ 'r' : [':call CompileRunGcc()'           , 'run']                     ,
@@ -142,34 +142,23 @@ let g:which_key_map.g = {
 let g:which_key_map.j = {
 			\ 'name' : '+lsp' ,
 			\ '.' : [':CocConfig'                          , 'config'],
-			\ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
 			\ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
 			\ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-			\ 'b' : [':CocNext'                            , 'next action'],
-			\ 'B' : [':CocPrev'                            , 'prev action'],
-			\ 'c' : [':CocList commands'                   , 'commands'],
-			\ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-			\ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
 			\ 'e' : [':CocList extensions'                 , 'extensions'],
 			\ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
 			\ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-			\ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-			\ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-			\ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
+			\ 'd' : [':CocList diagnostics'                , 'diagnostics'],
 			\ 'l' : [':CocList'         , 'Coclist'],
 			\ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-			\ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-			\ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-			\ 'O' : [':CocList outline'                    , 'outline'],
 			\ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-			\ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+			\ 'j' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
+			\ 'J' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+			\ 'o' : [':CocList outline'                    , 'outline'],
+			\ 'O' : ['<Plug>(coc-openlink)'                , 'open link'],
 			\ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
 			\ 'r' : ['<Plug>(coc-rename)'                  , 'rename'],
-			\ 'R' : ['<Plug>(coc-references)'              , 'references'],
 			\ 's' : [':CocList -I symbols'                 , 'references'],
 			\ 'S' : [':CocList snippets'                   , 'snippets'],
-			\ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-			\ 'u' : [':CocListResume'                      , 'resume list'],
 			\ 'U' : [':CocUpdate'                          , 'update CoC'],
 			\ 'z' : [':CocDisable'                         , 'disable CoC'],
 			\ 'Z' : [':CocEnable'                          , 'enable CoC'],

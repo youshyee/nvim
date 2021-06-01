@@ -70,7 +70,9 @@ noremap ` ~
 " placeholder in vim
 nnoremap zz <Esc>/<++><CR>:nohlsearch<CR>c4l
 nnoremap ,. <Esc>a<++><Esc>
-inoremap ,. <++>
+iabbrev ,. <++>
+
+nnoremap zx :nohlsearch<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <silent> <M-j>    :resize +2<CR>
