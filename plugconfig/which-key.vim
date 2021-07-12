@@ -47,13 +47,15 @@ let g:which_key_map.a = {
 			\ 'P' : [':call Pandocmd2beamer()'         , 'get beamer']              ,
 			\ 'V' : [':Codi!'                          , 'codi off']                ,
 			\ 'a' : ['<Plug>(coc-codeaction)'          , 'coc action']              ,
+			\ 's' : ['<Plug>(coc-translator-p)'         , 'translation']            ,
 			\ 'm' : [':InstantMarkdownPreview'         , 'md preview']              ,
 			\ 'p' : [':call Getpdf()'                  , 'get pdf']                 ,
 			\ 'r' : [':call CompileRunGcc()'           , 'run']                     ,
-			\ 's' : [':let @/ = ""'                    , 'remove search highlight'] ,
 			\ 't' : [':TableModeToggle'                , 'table mode!']             ,
+			\ 'd' : [':AsyncRun debugcpfile'           , 'debug config copy']             ,
 			\ 'v' : [':Codi'                           , 'codi on']                 ,
 			\ }
+
 
 " d is for debug
 let g:which_key_map.d = {

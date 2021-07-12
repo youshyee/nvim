@@ -44,8 +44,8 @@ if !exists('g:vscode') " vim only
 	set termguicolors " enable true colors support
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	" color dracula
-	color desert
-	" color deus
+	" color desert
+	color deus
 	" color gruvbox
 	" color ayu
 	" color xcodelighthc
