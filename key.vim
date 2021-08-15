@@ -97,3 +97,8 @@ noremap <M-7> 7gt
 noremap <M-8> 8gt
 noremap <M-9> 9gt
 noremap <M-0> 10gt
+
+
+" better n and N in search
+noremap n nzzzv
+noremap N Nzzzv
