@@ -43,14 +43,12 @@
 		"variable": "\ue71b"
 	},
 	//diagnostics
-	"diagnostic.signOffset": 1,
 	"diagnostic.errorSign": "×",
 	"diagnostic.warningSign": "»",
 	"diagnostic.infoSign": "ღ",
 	"diagnostic.hintSign": "ஐ",
 	"diagnostic.displayByAle": false,
 	"diagnostic.refreshOnInsertMode": false,
-	"diagnostic.refreshAfterSave": false,
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
@@ -72,89 +70,13 @@
 	"signature.target": "float",
 	"yank.enableCompletion": false,
 	"prettier.eslintIntegration": true,
+
 	"prettier.disableLanguages": [],
 	"prettier.useTabs": true,
 	"typescript.suggestionActions.enabled": true,
 	"prettier.formatterPriority": 1,
 	"typescript.format.enabled": true,
 	//explorer
-	"explorer.width": 38,
-	"explorer.quitOnOpen": true,
-	"explorer.sources": [
-		{
-			"name": "buffer",
-			"expand": false
-		},
-		{
-			"name": "file",
-			"expand": true
-		}
-	],
-	"explorer.file.column.indent.indentLine": true,
-	"explorer.file.showHiddenFiles": true,
-	"explorer.icon.enableNerdfont": true,
-	"explorer.file.column.git.showIgnored": true,
-	"explorer.keyMappingMode": "none",
-	"explorer.buffer.showHiddenBuffers": false,
-	"explorer.keyMappings": {
-		"i": false,
-		"gk": "expandablePrev",
-		"gj": "expandableNext",
-
-		"m": "toggleSelection",
-		"<tab>": "actionMenu",
-
-		"h": "collapse",
-		"l": ["expandable?", "expand", "open:tab"],
-		"o": ["expanded?", "collapse", "expand"],
-		"J": ["toggleSelection", "nodeNext"],
-		"K": ["toggleSelection", "nodePrev"],
-		"gl": "expandRecursive",
-		"gh": "collapseRecursive",
-		"<2-LeftMouse>": [
-			"expandable?",
-			["expanded?", "collapse", "expand"],
-			"open"
-		],
-		"<cr>": ["expandable?", "cd", "open:tab"],
-
-		"O": "open",
-		"S": "open:vsplit",
-		"s": "open:split:plain",
-		"E": "open:split",
-		"t": "open:tab",
-		"<bs>": "gotoParent",
-		"gp": "preview:labeling",
-
-		"yp": "copyFilepath",
-		"yn": "copyFilename",
-		"yy": "copyFile",
-		"dd": "cutFile",
-		"pp": "pasteFile",
-		"dD": "deleteForever",
-		"a": "addFile",
-		"M": "addDirectory",
-		"A": "rename",
-		".": "toggleHidden",
-		"zh": "toggleHidden",
-		"R": "refresh",
-		"?": "help",
-		"q": "quit",
-		"X": "systemExecute",
-		"gd": "listDrive",
-		"f": "search",
-		"F": "searchRecursive",
-		"B": "gotoSource:file",
-		"b": "gotoSource:buffer",
-		"[[": "sourcePrev",
-		"]]": "sourceNext",
-		"[d": "diagnosticPrev",
-		"]d": "diagnosticNext",
-		"[c": "gitPrev",
-		"]c": "gitNext",
-		"<<": "gitStage",
-		">>": "gitUnstage"
-	},
 	//git
 	"git.enableGutters": true,
 	"git.branchCharacter": "\uf408",
@@ -172,22 +94,26 @@
 	"git.topRemovedSign.text": "▔",
 	"git.changeRemovedSign.text": "▒",
 	"git.enableGlobalStatus": false,
-	"git.signOffset": 2,
-	//python
-	"python.autoComplete.addBrackets": true,
-	"python.jediEnabled": false,
-	"python.linting.enabled": false,
-	"python.linting.pylintArgs": ["--rcfile=~/.config/nvim/.pylintrc"],
-	"python.linting.pylintEnabled": false,
-	"python.linting.flake8Enabled": false,
-	"python.linting.lintOnSave": true,
-	"python.linting.pep8Enabled": false,
-	"python.formatting.provider": "yapf",
-	"python.formatting.yapfArgs": [
-		"--style",
-		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 2,COLUMN_LIMIT:100}"
-	],
+
+	//python right
+	"python.pythonPath":"/home/youshyee/.local/bin/personal/pythonnvim"
+	/* "python.autoComplete.addBrackets": true, */
+	/* "python.jediEnabled": false, */
+	/* "python.linting.enabled": false, */
+	/* "python.linting.pylintArgs": ["--rcfile=~/.config/nvim/.pylintrc"], */
+	/* "python.linting.pylintEnabled": false, */
+	/* "python.linting.flake8Enabled": false, */
+	/* "python.linting.lintOnSave": true, */
+	/* "python.linting.pep8Enabled": false, */
+	/* "python.formatting.provider": "yapf", */
+	/* "python.formatting.yapfArgs": [ */
+	/* 	"--style", */
+	/* 	"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 2,COLUMN_LIMIT:100}" */
+	/* ], */
 	// html js
+	// be careful not to condense the hierarchy as it breaks pyls
+
+
 	"html.format.enable": true,
 	"javascript.referencesCodeLens.enable": true,
 	"javascript.showUnused": true,
@@ -219,6 +145,73 @@
 	},
 
 	"languageserver": {
+	//"python": {
+		//"command": "python",
+		//"args": [
+			//"-mpyls",
+			//"-vv",
+			//"--log-file",
+			//"/tmp/lsp_python.log"
+		//],
+		//"trace.server": "verbose",
+		//"filetypes": [
+			//"python"
+		//],
+		//"settings": {
+			//"pyls": {
+				//"enable": true,
+				//"trace": {
+					//"server": "verbose"
+				//},
+				//"commandPath": "",
+				//"configurationSources": [
+					//"pycodestyle"
+				//],
+				//"plugins": {
+					//"jedi_completion": {
+						//"enabled": true
+					//},
+					//"jedi_hover": {
+						//"enabled": true
+					//},
+					//"jedi_references": {
+						//"enabled": true
+					//},
+					//"jedi_signature_help": {
+						//"enabled": true
+					//},
+					//"jedi_symbols": {
+						//"enabled": true,
+						//"all_scopes": true
+					//},
+					//"mccabe": {
+						//"enabled": true,
+						//"threshold": 15
+					//},
+					//"preload": {
+						//"enabled": true
+					//},
+					//"pycodestyle": {
+						//"enabled": true
+					//},
+					//"pydocstyle": {
+						//"enabled": false,
+						//"match": "(?!test_).*\\.py",
+						//"matchDir": "[^\\.].*"
+					//},
+					//"pyflakes": {
+						//"enabled": true
+					//},
+					//"rope_completion": {
+						//"enabled": true
+					//},
+					//"yapf": {
+						//"enabled": true
+					//}
+				//}
+			//}
+		//}
+	//},
 		"latex": {
 			"command": "/usr/bin/texlab",
 			"ignoredRootPaths": ["~"],

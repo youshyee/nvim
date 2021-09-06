@@ -50,6 +50,7 @@ if !exists('g:vscode') " vim only
 	" color ayu
 	" color xcodelighthc
 	hi NonText ctermfg=gray guifg=grey10
+	" exec AirlineTheme alduin
 endif
 
 " ===

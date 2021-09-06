@@ -32,6 +32,8 @@ if !exists('g:vscode')
 	"
 	" Pretty Dress
 	Plug 'vim-airline/vim-airline'
+	" Plug 'vim-airline/vim-airline-themes'
+
 	Plug 'ojroques/vim-scrollstatus'
 
 	Plug 'bling/vim-bufferline'
@@ -48,7 +50,9 @@ if !exists('g:vscode')
 	"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
-	Plug 'kevinhwang91/rnvimr' "<lead>+R run ranger
+	" Plug 'kevinhwang91/rnvimr' "<lead>+R run ranger
+  Plug 'francoiscabrol/ranger.vim'
+  Plug 'rbgrouleff/bclose.vim'
 
 	" Taglist
 	" Plug 'liuchengxu/vista.vim'

@@ -32,28 +32,31 @@ let g:which_key_map['c'] = [ ':set spell!'                , 'spell check']
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
 let g:which_key_map['k'] = [ ':call Show_documentation()' , 'show doc']
 let g:which_key_map['l'] = [ ':Lines'                     , 'line search' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'            , 'undo tree']
 let g:which_key_map['y'] = [ ':CocList -A --normal yank'  , 'yank list']
 let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
-let g:which_key_map['q'] = [':Bdelete'                        , 'delete buffer']
+let g:which_key_map['q'] = [':Bdelete'                    , 'delete buffer']
+let g:which_key_map['\'] = ['<Plug>(coc-format)'          , 'format']
+" ranger
+let g:which_key_map['o'] = [':Ranger'                     , 'ranger']
+let g:which_key_map['O'] = ['RangerNewTab'                , 'newtab ranger']
 
 " Group mappings
 " a is for actions
 let g:which_key_map.a = {
-			\ 'name' : '+actions' ,
-			\ 'A' : ['<Plug>(coc-codeaction-selected)' , 'coc vaction']             ,
-			\ 'M' : [':InstantMarkdownStop'            , 'md preview stop']         ,
-			\ 'P' : [':call Pandocmd2beamer()'         , 'get beamer']              ,
-			\ 'V' : [':Codi!'                          , 'codi off']                ,
-			\ 'a' : ['<Plug>(coc-codeaction)'          , 'coc action']              ,
-			\ 's' : ['<Plug>(coc-translator-p)'         , 'translation']            ,
-			\ 'm' : [':InstantMarkdownPreview'         , 'md preview']              ,
-			\ 'p' : [':call Getpdf()'                  , 'get pdf']                 ,
-			\ 'r' : [':call CompileRunGcc()'           , 'run']                     ,
-			\ 't' : [':TableModeToggle'                , 'table mode!']             ,
-			\ 'd' : [':AsyncRun debugcpfile'           , 'debug config copy']             ,
-			\ 'v' : [':Codi'                           , 'codi on']                 ,
+			\ 'name' : '+actions'                      ,
+			\ 'A' : ['<Plug>(coc-codeaction-selected)' , 'coc vaction']       ,
+			\ 'M' : [':InstantMarkdownStop'            , 'md preview stop']   ,
+			\ 'P' : [':call Pandocmd2beamer()'         , 'get beamer']        ,
+			\ 'V' : [':Codi!'                          , 'codi off']          ,
+			\ 'a' : ['<Plug>(coc-codeaction)'          , 'coc action']        ,
+			\ 's' : ['<Plug>(coc-translator-p)'        , 'translation']       ,
+			\ 'm' : [':InstantMarkdownPreview'         , 'md preview']        ,
+			\ 'p' : [':call Getpdf()'                  , 'get pdf']           ,
+			\ 'r' : [':call CompileRunGcc()'           , 'run']               ,
+			\ 't' : [':TableModeToggle'                , 'table mode!']       ,
+			\ 'd' : [':AsyncRun debugcpfile'           , 'debug config copy'] ,
+			\ 'v' : [':Codi'                           , 'codi on']           ,
 			\ }
 
 
@@ -76,13 +79,13 @@ let g:which_key_map.d = {
 
 " w is for window
 let g:which_key_map.w = {
-			\ 'name' : '+window' ,
-			\ 'b' : ['<C-W>s'                             , 'split below'],
-			\ 'r' : ['<C-W>v'                             , 'split right'],
-			\ '=' : ['<C-W>='                             , 'balance windows' ],
-			\ 't' : [':tabe'                             , 'new tab'],
-			\ 'w' : [':MaximizerToggle'                             , 'toggle wind max'],
-			\ 's' : [':call WindowSwap#EasyWindowSwap()'  ,'swap window'],
+			\ 'name' : '+window'                         ,
+			\ 'b' : ['<C-W>s'                            , 'split below']      ,
+			\ 'r' : ['<C-W>v'                            , 'split right']      ,
+			\ '=' : ['<C-W>='                            , 'balance windows' ] ,
+			\ 't' : [':tabe'                             , 'new tab']          ,
+			\ 'w' : [':MaximizerToggle'                  , 'toggle wind max']  ,
+			\ 's' : [':call WindowSwap#EasyWindowSwap()' , 'swap window']      ,
 			\ }
 
 " s is for search
@@ -142,61 +145,60 @@ let g:which_key_map.g = {
 
 " p is for language server protocol
 let g:which_key_map.j = {
-			\ 'name' : '+lsp' ,
-			\ '.' : [':CocConfig'                          , 'config'],
-			\ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-			\ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-			\ 'e' : [':CocList extensions'                 , 'extensions'],
-			\ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-			\ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-			\ 'd' : [':CocList diagnostics'                , 'diagnostics'],
-			\ 'l' : [':CocList'         , 'Coclist'],
-			\ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-			\ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-			\ 'j' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-			\ 'J' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-			\ 'o' : [':CocList outline'                    , 'outline'],
-			\ 'O' : ['<Plug>(coc-openlink)'                , 'open link'],
-			\ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-			\ 'r' : ['<Plug>(coc-rename)'                  , 'rename'],
-			\ 's' : [':CocList -I symbols'                 , 'references'],
-			\ 'S' : [':CocList snippets'                   , 'snippets'],
-			\ 'U' : [':CocUpdate'                          , 'update CoC'],
-			\ 'z' : [':CocDisable'                         , 'disable CoC'],
-			\ 'Z' : [':CocEnable'                          , 'enable CoC'],
+			\ 'name' : '+lsp'                            ,
+			\ '.' : [':CocConfig'                        , 'config']          ,
+			\ 'a' : ['<Plug>(coc-codeaction)'            , 'line action']     ,
+			\ 'A' : ['<Plug>(coc-codeaction-selected)'   , 'selected action'] ,
+			\ 'e' : [':CocList extensions'               , 'extensions']      ,
+			\ 'f' : ['<Plug>(coc-format-selected)'       , 'format selected'] ,
+			\ 'd' : [':CocList diagnostics'              , 'diagnostics']     ,
+			\ 'l' : [':CocList'                          , 'Coclist']         ,
+			\ 'n' : ['<Plug>(coc-diagnostic-next)'       , 'next diagnostic'] ,
+			\ 'p' : ['<Plug>(coc-diagnostic-prev)'       , 'prev diagnostic'] ,
+			\ 'j' : ['<Plug>(coc-diagnostic-next-error)' , 'next error']      ,
+			\ 'J' : ['<Plug>(coc-diagnostic-prev-error)' , 'prev error']      ,
+			\ 'o' : [':CocList outline'                  , 'outline']         ,
+			\ 'O' : ['<Plug>(coc-openlink)'              , 'open link']       ,
+			\ 'q' : ['<Plug>(coc-fix-current)'           , 'quickfix']        ,
+			\ 'r' : ['<Plug>(coc-rename)'                , 'rename']          ,
+			\ 's' : [':CocList -I symbols'               , 'references']      ,
+			\ 'S' : [':CocList snippets'                 , 'snippets']        ,
+			\ 'U' : [':CocUpdate'                        , 'update CoC']      ,
+			\ 'z' : [':CocDisable'                       , 'disable CoC']     ,
+			\ 'Z' : [':CocEnable'                        , 'enable CoC']      ,
 			\ }
 
 " t is for terminal
 let g:which_key_map.t = {
-			\ 'name' : '+terminal' ,
-			\ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-			\ 'g' : [':FloatermNew tig'                           , 'git'],
-			\ 'h' : [':FloatermNew htop'                           , 'htop'],
-			\ 'n' : [':FloatermNew node'                              , 'node'],
-			\ 'p' : [':FloatermNew ipython'                            , 'python'],
-			\ 'm' : [':FloatermNew neomutt'                           , 'mail'],
-			\ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-			\ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
-			\ 't' : [':FloatermToggle'                                , 'toggle'],
-			\ 'v' : [':vsplit term://fish'                                , 'vsplit term'],
+			\ 'name' : '+terminal'          ,
+			\ 'f' : [':FloatermNew fzf'     , 'fzf']         ,
+			\ 'g' : [':FloatermNew tig'     , 'git']         ,
+			\ 'h' : [':FloatermNew htop'    , 'htop']        ,
+			\ 'n' : [':FloatermNew node'    , 'node']        ,
+			\ 'p' : [':FloatermNew ipython' , 'python']      ,
+			\ 'm' : [':FloatermNew neomutt' , 'mail']        ,
+			\ 'r' : [':FloatermNew ranger'  , 'ranger']      ,
+			\ 's' : [':FloatermNew ncdu'    , 'ncdu']        ,
+			\ 't' : [':FloatermToggle'      , 'toggle']      ,
+			\ 'v' : [':vsplit term://fish'  , 'vsplit term'] ,
 			\ }
 
 " T is for terminal
 let g:which_key_map.T = {
-			\ 'name' : '+tabline' ,
-			\ 'b' : [':XTabListBuffers'         , 'list buffers'],
-			\ 'd' : [':XTabCloseBuffer'         , 'close buffer'],
-			\ 'D' : [':XTabDeleteTab'           , 'close tab'],
-			\ 'h' : [':XTabHideBuffer'          , 'hide buffer'],
-			\ 'i' : [':XTabInfo'                , 'info'],
-			\ 'l' : [':XTabLock'                , 'lock tab'],
-			\ 'm' : [':XTabMode'                , 'toggle mode'],
-			\ 'n' : [':tabNext'                 , 'next tab'],
-			\ 'N' : [':XTabMoveBufferNext'      , 'buffer->'],
-			\ 't' : [':tabnew'                  , 'new tab'],
-			\ 'p' : [':tabprevious'             , 'prev tab'],
-			\ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
-			\ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
+			\ 'name' : '+tabline'          ,
+			\ 'b' : [':XTabListBuffers'    , 'list buffers'] ,
+			\ 'd' : [':XTabCloseBuffer'    , 'close buffer'] ,
+			\ 'D' : [':XTabDeleteTab'      , 'close tab']    ,
+			\ 'h' : [':XTabHideBuffer'     , 'hide buffer']  ,
+			\ 'i' : [':XTabInfo'           , 'info']         ,
+			\ 'l' : [':XTabLock'           , 'lock tab']     ,
+			\ 'm' : [':XTabMode'           , 'toggle mode']  ,
+			\ 'n' : [':tabNext'            , 'next tab']     ,
+			\ 'N' : [':XTabMoveBufferNext' , 'buffer->']     ,
+			\ 't' : [':tabnew'             , 'new tab']      ,
+			\ 'p' : [':tabprevious'        , 'prev tab']     ,
+			\ 'P' : [':XTabMoveBufferPrev' , '<-buffer']     ,
+			\ 'x' : [':XTabPinBuffer'      , 'pin buffer']   ,
 			\ }
 
 " Register which key map
