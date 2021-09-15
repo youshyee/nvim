@@ -81,6 +81,8 @@ let g:which_key_map.d = {
 let g:which_key_map.w = {
 			\ 'name' : '+window'                         ,
 			\ 'b' : ['<C-W>s'                            , 'split below']      ,
+			\ 'd' : [':windo diffthis'                            , 'window diff']      ,
+			\ 'D' : [':windo diffoff'                            , 'window diff off']      ,
 			\ 'r' : ['<C-W>v'                            , 'split right']      ,
 			\ '=' : ['<C-W>='                            , 'balance windows' ] ,
 			\ 't' : [':tabe'                             , 'new tab']          ,
@@ -100,8 +102,8 @@ let g:which_key_map.s = {
 			\ 'f' : [':Files'                 , 'files'],
 			\ 'g' : [':GFiles'                , 'git files'],
 			\ 'G' : [':GFiles?'               , 'modified git files'],
-			\ 'h' : [':History'               , 'file history'],
-			\ 'H' : [':History:'              , 'command history'],
+			\ 'H' : [':History'               , 'file history'],
+			\ 'h' : [':History:'              , 'command history'],
 			\ 'l' : [':Lines'                 , 'lines'] ,
 			\ 'm' : [':Marks'                 , 'marks'] ,
 			\ 'M' : [':Maps'                  , 'normal maps'] ,
@@ -138,7 +140,7 @@ let g:which_key_map.g = {
 			\ 'o' : [':AsyncRun gmp'                  , 'autopush']        ,
 			\ 'P' : [':AsyncRun git pull'             , 'pull']            ,
 			\ 'S' : ['<Plug>(GitGutterStageHunk)'     , 'stage hunk']      ,
-			\ 's' : [':Gstatus'                       , 'status']          ,
+			\ 's' : [':Git status'                       , 'status']          ,
 			\ 't' : [':GitGutterSignsToggle'          , 'toggle signs']    ,
 			\ 'u' : ['<Plug>(GitGutterUndoHunk)'      , 'undo hunk']       ,
 			\ }

@@ -5,7 +5,7 @@
 " | |  | | |_| |\ V /| | | | | | | | | (__
 " |_|  |_|\__, | \_/ |_|_| |_| |_|_|  \___|
 "         |___/
-" Author: xinyu
+" AutHor:  xinyu
 " ===
 " === Auto load for first time uses
 " ===
@@ -45,7 +45,7 @@ if !exists('g:vscode') " vim only
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	" color dracula
 	" color desert
-	color deus
+	" color deus
 	" color gruvbox
 	" color ayu
 	" color xcodelighthc

@@ -37,7 +37,7 @@
 " ===
 " Make Ranger replace netrw and be the file explorer
 "
-let g:ranger_command_override = 'ranger --cmd "set show_hidden=true" --cmd="set column_ratios 1,1" --cmd="set draw_borders separators"'
+" let g:ranger_command_override = 'ranger --cmd="set column_ratios 0.5,1"'
 let g:ranger_map_keys = 0
 let g:bclose_no_plugin_maps=1
 

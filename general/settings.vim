@@ -62,6 +62,7 @@ set visualbell
 set wildmenu
 set wrap
 syntax on
+set showtabline=2 " always show tabline
 
 silent !mkdir -p ~/.config/nvim/tmp/backup
 silent !mkdir -p ~/.config/nvim/tmp/undo
