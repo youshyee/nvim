@@ -1,0 +1,46 @@
+{
+	"configurations": {
+		"default debug": {
+			"adapter": "debugpy",
+			"configuration": {
+				"python": "~/.local/bin/pythonnvim",
+				"args": [
+					"--arch",
+					"vit_small",
+					"--fb_pretrained",
+					"True",
+					"--data_path",
+					"/mnt/storage/scratch/rn18510/dataspace/DAVIS2017/davis-2017/DAVIS/JPEGImages/480p/",
+					"--motion_path",
+					"/mnt/storage/scratch/rn18510/dataspace/DAVIS2017/davis-2017/DAVIS/JPEGImages/opf/",
+					"--output_dir",
+					"/mnt/storage/scratch/rn18510/workspace/dino/davis_in_motion_pretrain",
+					"--batch_size_per_gpu",
+					"32",
+					"--local_rank",
+					"0"
+				],
+				"env": {
+					"RANK": "0",
+					"WORLD_SIZE": "1",
+					"LOCAL_RANK": "0",
+					"MASTER_ADDR": "127.0.0.1",
+					"MASTER_PORT": "29678"
+				},
+				"program": "./main_motion_train.py",
+
+				"request": "launch",
+				"type": "python",
+				"cwd": "${workspaceRoot}",
+				"stopOnEntry": true,
+				"console": "integratedTerminal"
+			},
+			"breakpoints": {
+				"exception": {
+					"raised": "N",
+					"uncaught": ""
+				}
+			}
+		}
+	}
+}
