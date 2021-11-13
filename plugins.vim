@@ -14,6 +14,7 @@ Plug 'easymotion/vim-easymotion' " toggle ' quick locate by letter
 Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
 Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'svermeulen/vim-subversive' " use ss to replace line with place holder <++> use s<motion> to replace with <++>
+Plug 'github/copilot.vim'
 
 if exists('g:vscode')
 	Plug 'machakann/vim-highlightedyank'
