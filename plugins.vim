@@ -7,7 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Change dates fast using <c-a> and <c-x> can change data
 Plug 'tpope/vim-speeddating'
 Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter backward
-Plug 'tomtom/tcomment_vim' " in <space>/ to comment a line or <space>; to comment inline
+Plug 'tomtom/tcomment_vim' " in z/ to comment a line or /; to comment inline
 " Repeat stuff
 Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion' " toggle ' quick locate by letter
