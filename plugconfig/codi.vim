@@ -11,7 +11,7 @@ let g:codi#aliases = {
 			\ }
 let g:codi#interpreters = {
                    \ 'python': {
-                       \ 'bin': '/home/youshyee/.conda/envs/torch/bin/python',
+                       \ 'bin': '$HOME/.local/bin/pythonvim',
                        \ 'prompt': '^\(>>>\|\.\.\.\) ',
                        \ },
                    \ }

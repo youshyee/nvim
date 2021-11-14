@@ -96,7 +96,7 @@
 	"git.enableGlobalStatus": false,
 
 	//python right
-	"python.pythonPath":"/home/youshyee/.local/bin/personal/pythonnvim"
+	"python.pythonPath":"$HOME/.local/bin/personal/pythonnvim"
 	/* "python.autoComplete.addBrackets": true, */
 	/* "python.jediEnabled": false, */
 	/* "python.linting.enabled": false, */

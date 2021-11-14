@@ -668,7 +668,7 @@
 	"gitlens.hovers.currentLine.over": "line",
 	"editor.suggestSelection": "first",
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"python.pythonPath": "/home/youshyee/.conda/envs/torch/bin/python",
+	"python.pythonPath": "$HOME/.conda/envs/torch/bin/python",
 	"workbench.list.automaticKeyboardNavigation": false,
 	"oneDarkPro.editorTheme": "onedarkPro",
 	"python.languageServer": "Microsoft",

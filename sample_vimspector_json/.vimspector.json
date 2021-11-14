@@ -5,7 +5,6 @@
 			"configuration": {
 				// modify here
 				"python": "./run.sh", // exe path
-				// "python": "/home/youshyee/.conda/envs/torch/bin/python",
 				"args": ["*${CommandLineArgs}"],
 				"program": "${file}",
 				// modify here
