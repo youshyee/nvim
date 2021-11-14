@@ -690,7 +690,7 @@
 	"python.condaPath": "/opt/miniconda3/condabin/conda",
 	"python.formatting.provider": "black",
 	"python.insidersChannel": "daily",
-	"terminal.integrated.shell.linux": "/usr/bin/fish",
+	"terminal.integrated.shell.linux": "/usr/bin/zsh",
 	"terminal.external.linuxExec": "/usr/bin/alacritty",
 	"editor.tokenColorCustomizations": {
 		"[One Dark Pro]": {

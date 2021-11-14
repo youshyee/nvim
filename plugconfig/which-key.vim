@@ -25,21 +25,24 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['['] = [ 'bprevious'                  , 'previous-buffer' ]
-let g:which_key_map[']'] = [ 'bnext'                      , 'next-buffer' ]
-let g:which_key_map['b'] = [':Buffers'                    , 'open buffers']
-let g:which_key_map['c'] = [ ':set spell!'                , 'spell check']
-let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
-let g:which_key_map['k'] = [ ':call Show_documentation()' , 'show doc']
-let g:which_key_map['l'] = [ ':Lines'                     , 'line search' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle'            , 'undo tree']
-let g:which_key_map['y'] = [ ':CocList -A --normal yank'  , 'yank list']
-let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
-let g:which_key_map['q'] = [':Bdelete'                    , 'delete buffer']
-let g:which_key_map['\'] = ['<Plug>(coc-format)'          , 'format']
-" ranger
-let g:which_key_map['o'] = [':Ranger'                     , 'ranger']
-let g:which_key_map['O'] = ['RangerNewTab'                , 'newtab ranger']
+"
+
+let g:which_key_map['[' ] = [ 'bprevious'                  , 'previous-buffer' ]
+let g:which_key_map['\' ] = ['<Plug>(coc-format)'          , 'format'          ]
+let g:which_key_map[']' ] = [ 'bnext'                      , 'next-buffer'     ]
+let g:which_key_map['b' ] = [':Buffers'                    , 'open buffers'    ]
+let g:which_key_map['c' ] = [ ':set spell!'                , 'spell check'     ]
+let g:which_key_map['f' ] = [ ':Files'                     , 'search files'    ]
+let g:which_key_map['h' ] = [ ':History'                   , 'recent open'     ]
+let g:which_key_map['k' ] = [ ':call Show_documentation()' , 'show doc'        ]
+let g:which_key_map['l' ] = [ ':Lines'                     , 'line search'     ]
+let g:which_key_map['o' ] = [':Ranger'                     , 'ranger'          ]
+let g:which_key_map['O' ] = ['RangerNewTab'                , 'newtab ranger'   ]
+let g:which_key_map['q' ] = [':Bdelete'                    , 'delete buffer'   ]
+let g:which_key_map['r' ] = [ '<C-W>v'                     , 'split right'     ]
+let g:which_key_map['u' ] = [ ':UndotreeToggle'            , 'undo tree'       ]
+let g:which_key_map['y' ] = [ ':CocList -A --normal yank'  , 'yank list'       ]
+let g:which_key_map['z' ] = [ 'Goyo'                       , 'zen'             ]
 
 " Group mappings
 " a is for actions
@@ -180,9 +183,9 @@ let g:which_key_map.t = {
 			\ 'p' : [':FloatermNew ipython' , 'python']      ,
 			\ 'm' : [':FloatermNew neomutt' , 'mail']        ,
 			\ 'r' : [':FloatermNew ranger'  , 'ranger']      ,
-			\ 's' : [':FloatermNew ncdu'    , 'ncdu']        ,
+			\ 's' : [':FloatermNew dust'    , 'dust']        ,
 			\ 't' : [':FloatermToggle'      , 'toggle']      ,
-			\ 'v' : [':vsplit term://fish'  , 'vsplit term'] ,
+			\ 'v' : [':vsplit term://zsh'  , 'vsplit term'] ,
 			\ }
 
 " T is for terminal
