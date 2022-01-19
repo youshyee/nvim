@@ -40,6 +40,7 @@ if !exists('g:vscode')
 	Plug 'bling/vim-bufferline'
 	Plug 'ajmwagar/vim-deus'
 	Plug 'crusoexia/vim-dracula'
+	Plug 'lunarvim/colorschemes'
 
 	" Swap windows
 	" Plug 'wesQ3/vim-windowswap'
@@ -109,6 +110,7 @@ if !exists('g:vscode')
 
 	" Other filetypes
 	" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
+	" Plug 'ivanov/vim-ipython'
 
 	" Editor Enhancement
 	"Plug 'Raimondi/delimitMate'

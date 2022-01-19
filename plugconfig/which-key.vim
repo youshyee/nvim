@@ -181,6 +181,7 @@ let g:which_key_map.t = {
 			\ 'h' : [':FloatermNew htop'    , 'htop']        ,
 			\ 'n' : [':FloatermNew node'    , 'node']        ,
 			\ 'p' : [':FloatermNew ipython' , 'python']      ,
+			\ 'P' : [':FloatermNew /home/youshyee/.miniconda/envs/pytorch/bin/ipython' , 'ipython']      ,
 			\ 'm' : [':FloatermNew neomutt' , 'mail']        ,
 			\ 'r' : [':FloatermNew ranger'  , 'ranger']      ,
 			\ 's' : [':FloatermNew dust'    , 'dust']        ,
