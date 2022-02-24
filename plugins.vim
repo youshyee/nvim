@@ -212,6 +212,7 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/asynctasks.vim
 	source $HOME/.config/nvim/plugconfig/tcomment.vim
 	source $HOME/.config/nvim/plugconfig/floatterm.vim
+	source $HOME/.config/nvim/plugconfig/copilot.vim
 
 	" ===
 	" === others
