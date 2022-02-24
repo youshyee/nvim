@@ -38,9 +38,12 @@ if !exists('g:vscode')
 	Plug 'ojroques/vim-scrollstatus'
 
 	Plug 'bling/vim-bufferline'
+	" color schemes
 	Plug 'ajmwagar/vim-deus'
 	Plug 'crusoexia/vim-dracula'
 	Plug 'lunarvim/colorschemes'
+	Plug 'folke/tokyonight.nvim'
+	" Plug 'jonstoler/werewolf.vim'
 
 	" Swap windows
 	" Plug 'wesQ3/vim-windowswap'
@@ -192,6 +195,9 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/vimtex.vim
 	source $HOME/.config/nvim/plugconfig/goyo.vim
 	source $HOME/.config/nvim/plugconfig/maximizer.vim
+
+	" source $HOME/.config/nvim/plugconfig/werewolf.vim
+
 	source $HOME/.config/nvim/plugconfig/tabular.vim
 	source $HOME/.config/nvim/plugconfig/rainbow.vim
 	source $HOME/.config/nvim/plugconfig/ranger.vim
