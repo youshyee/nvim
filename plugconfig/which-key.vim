@@ -131,7 +131,8 @@ let g:which_key_map.g = {
 			\ 'D' : [':Git diff'                      , 'diff']            ,
 			\ 'd' : [':Gdiffsplit'                    , 'diff split']      ,
 			\ 'f' : [':GitGutterFold'                 , 'hunk fold']       ,
-			\ 'g' : [':GGrep'                         , 'git grep']        ,
+			\ 'g' : [':FloatermNew lazygit'           , 'lazygit']         ,
+			\ 'G' : [':GGrep'                         , 'git grep']        ,
 			\ 'H' : [':GitGutterLineHighlightsToggle' , 'highlight hunks'] ,
 			\ 'h' : ['<Plug>(GitGutterPreviewHunk)'   , 'preview hunk']    ,
 			\ 'i' : [':CocList gitignore'             , 'gitignore']       ,
@@ -143,7 +144,7 @@ let g:which_key_map.g = {
 			\ 'o' : [':AsyncRun gmp'                  , 'autopush']        ,
 			\ 'P' : [':AsyncRun git pull'             , 'pull']            ,
 			\ 'S' : ['<Plug>(GitGutterStageHunk)'     , 'stage hunk']      ,
-			\ 's' : [':Git status'                       , 'status']          ,
+			\ 's' : [':Git status'                    , 'status']          ,
 			\ 't' : [':GitGutterSignsToggle'          , 'toggle signs']    ,
 			\ 'u' : ['<Plug>(GitGutterUndoHunk)'      , 'undo hunk']       ,
 			\ }
