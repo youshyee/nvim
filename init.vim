@@ -68,3 +68,5 @@ endif
 " over ride
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
+nnoremap j gj
+nnoremap k gk
