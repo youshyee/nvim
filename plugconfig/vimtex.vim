@@ -9,4 +9,5 @@ let g:vimtex_text_obj_enabled = 1
 let g:vimtex_motion_enabled = 1
 let g:vimtex_format_enabled = 1
 let g:vimtex_fold_enabled =1
+let g:vimtex_log_verbose = 0
 let maplocalleader='\'
