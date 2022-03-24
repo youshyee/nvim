@@ -44,11 +44,6 @@ command! -bang -nargs=? -complete=dir Files
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--inline-info']}), <bang>0)
 
 
-" Get text in files with Rg
-" command! -bang -nargs=* Rg
-"   \ call fzf#vim#grep(
-"   \   "rg --column --line-number --no-heading --color=always --smart-case --glob '!.git/**' ".shellescape(<q-args>), 1,
-
 " Make Ripgrep ONLY search file contents and not filenames
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
@@ -67,9 +62,14 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " Git grep
 command! -bang -nargs=* GGrep
 			\ call fzf#vim#grep(
 			\   'git grep --line-number '.shellescape(<q-args>), 0,
 			\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" nnoremap \o :call fzf#run({'sink': 'r'})<cr>
+command! LS call fzf#run(fzf#wrap({'sink': 'r'}))
+

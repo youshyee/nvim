@@ -56,8 +56,8 @@ if !exists('g:vscode')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
 	" Plug 'kevinhwang91/rnvimr' "<lead>+R run ranger
-  Plug 'francoiscabrol/ranger.vim'
-  Plug 'rbgrouleff/bclose.vim'
+	  Plug 'francoiscabrol/ranger.vim'
+	  Plug 'rbgrouleff/bclose.vim'
 
 	" Taglist
 	" Plug 'liuchengxu/vista.vim'
@@ -69,7 +69,7 @@ if !exists('g:vscode')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
 
 	" Snippets
-	" Plug 'SirVer/ultisnips' "  # to do
+	Plug 'SirVer/ultisnips' "  # to do
 	Plug 'honza/vim-snippets'
 
 	" Undo Tree
@@ -177,6 +177,7 @@ if exists('g:vscode') " vscode only
 	source $HOME/.config/nvim/plugconfig/highlightyank.vim
 endif
 if !exists('g:vscode') " vim only
+	source $HOME/.config/nvim/plugconfig/ultisnips.vim
 	source $HOME/.config/nvim/plugconfig/which-key.vim
 	source $HOME/.config/nvim/plugconfig/airline.vim
 	source $HOME/.config/nvim/plugconfig/gitgutter.vim
@@ -190,7 +191,6 @@ if !exists('g:vscode') " vim only
 	source $HOME/.config/nvim/plugconfig/undotree.vim
 	source $HOME/.config/nvim/plugconfig/multicursor.vim
 	source $HOME/.config/nvim/plugconfig/bullet.vim
-	source $HOME/.config/nvim/plugconfig/ultisnips.vim
 	source $HOME/.config/nvim/plugconfig/closetag.vim
 	source $HOME/.config/nvim/plugconfig/vimtex.vim
 	source $HOME/.config/nvim/plugconfig/goyo.vim

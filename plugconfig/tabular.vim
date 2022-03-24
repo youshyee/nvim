@@ -2,4 +2,4 @@
 " ===
 " === tabular
 " ===
-vmap ta :Tabularize /
+vmap zt :Tabularize /

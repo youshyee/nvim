@@ -1,0 +1,235 @@
+priority 10
+
+extends latex
+# mysnippets
+
+snippet xy "xy commend" wi
+\xy{${1:${VISUAL}}}$0
+endsnippet
+
+snippet bf "Bold" wi
+\textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet it "Italic" wi
+\textit{${1:${VISUAL}}}$0
+endsnippet
+
+snippet un "Underline" wi
+\un{${1:${VISUAL}}}$0
+endsnippet
+
+snippet rm "Text" wi
+\rm{${1:${VISUAL}}}$0
+endsnippet
+
+
+###############
+# ENVIRONMENT #
+###############
+
+snippet beg "begin{} / end{}" bi
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet center "Center" bi
+\begin{center}
+	${0:${VISUAL}}
+\end{center}
+endsnippet
+
+
+snippet fig "Figure environment" bi
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{${1}}
+	\caption{\footnotesize{textbf{$0}}}
+	\label{fig:${1}}
+\end{figure}
+endsnippet
+
+snippet enum "Enumerate" bi
+\begin{enumerate}
+	\item ${0:${VISUAL}}
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" bi
+\begin{itemize}
+	\item ${0:${VISUAL}}
+\end{itemize}
+endsnippet
+
+
+snippet abs "abstract environment" b
+\begin{abstract}
+	${0:${VISUAL}}
+.\end{abstract}
+endsnippet
+
+snippet tab "tabular / array environment" b
+	\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+	$0${2/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+
+	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
+		$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\end{table}
+endsnippet
+
+########
+# MATH #
+########
+snippet equ "equation env" b
+\begin{equation}\label{equ:}
+\footnotesize{
+		$0
+}
+\end{equation}
+
+endsnippet
+snippet equs "equation split env" b
+\begin{equation}\label{equ:}
+\footnotesize{
+	\begin{split}
+		$0
+	\end{split}
+}
+\end{equation}
+endsnippet
+
+snippet bb "mathbb" w
+\mathbb{${0:${VISUAL}}}
+endsnippet
+
+snippet cal "mathbb" w
+\mathcal{${0:${VISUAL}}}
+endsnippet
+
+
+
+snippet tabmini "mini table template" b
+\begin{table*}[!ht]
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(a)}}\\
+\scriptsize
+\begin{tabular}[t]{c|c}
+& \textbf{mAP}   \\
+                                                                              \\ \hline
+& \\
+& \\
+& \\
+& \\
+& \\
+	\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(b)}}\\
+\scriptsize
+\begin{tabular}[t]{c|c}
+                                                                             \\ \hline
+& \\
+& \\
+& \\
+& \\
+& \\
+& \\
+	\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(c)}}\\
+\scriptsize
+	\begin{tabular}[t]{c|c}
+& \\
+                                                                                 \\ \hline
+& \\
+& \\
+& \\
+& \\
+& \\
+	\end{tabular}
+	\end{center}
+\end{minipage}\\ \ \\
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(d)}}\\
+\scriptsize
+	\begin{tabular}[t]{c|c}
+& \\
+	                                                             \\ \hline
+& \\
+& \\
+	\end{tabular}
+	\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(e)}}\\
+\scriptsize
+	\begin{tabular}[t]{c|c}
+& \\
+		                                                                              \\ \hline
+& \\
+& \\
+	\end{tabular}
+	\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\begin{center}
+\textbf{\footnotesize\textit{(f)}}\\
+\scriptsize
+	\begin{tabular}[t]{c|c}
+& \\
+                                                                  \\ \hline
+& \\
+& \\
+& \\
+	\end{tabular}
+	\end{center}
+\end{minipage}
+\caption{}
+\label{tab:ablation}
+\end{table*}
+endsnippet
+
+snippet tikzhead "the basic import for pytorch" b
+\documentclass[tikz]{standalone}
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes.geometric}
+\begin{document}
+\pagestyle{empty}
+
+% Define block styles
+% \tikzstyle{trap} = [trapezium, trapezium angle=70,
+% draw,text centered,text width=5em,thick]
+% label=above:8cm, label=below:16cm, label=right:8cm, label=left:8cm
+% \tikzstyle{decision} = [diamond, draw, fill=blue!20,
+% text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+% \tikzstyle{feature} = [rectangle, draw, fill=blue!20, minimum width=3em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+% minimum height=2em]
+
+\begin{tikzpicture}[node distance = 1cm, auto]
+$0
+\end{tikzpicture}
+\end{document}
+endsnippet
