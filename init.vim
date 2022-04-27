@@ -5,7 +5,7 @@
 " | |  | | |_| |\ V /| | | | | | | | | (__
 " |_|  |_|\__, | \_/ |_|_| |_| |_|_|  \___|
 "         |___/
-" AutHor:  xinyu
+" Author:  xinyu
 " ===
 " === Auto load for first time uses
 " ===
