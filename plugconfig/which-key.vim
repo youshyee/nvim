@@ -10,18 +10,20 @@ let g:which_key_sep = '→'
 set timeoutlen=500
 
 " Not a fan of floating windows for this
-let g:which_key_use_floating_win = 0
-
-" Change the colors if you want
+let g:which_key_use_floating_win = 1
+let g:which_key_floating_relative_win = 1
+" let g:which_key_flatten = 0
+let g:which_key_floating_opts = { 'width': '-5' , 'height': '-2','row':'2','col':'5' }
+" " Change the colors if you want
 highlight default link WhichKey          Operator
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Function
 
 " Hide status line
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-			\| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+" autocmd! FileType which_key
+" autocmd  FileType which_key set laststatus=0 noshowmode noruler
+" 			\| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 
 " Single mappings
@@ -40,7 +42,7 @@ let g:which_key_map['k' ] = [ ':call Show_documentation()' , 'show doc'        ]
 let g:which_key_map['l' ] = [ ':Lines'                     , 'line search'     ]
 let g:which_key_map['n' ] = [ ':Snippets'                       , 'snippets'             ]
 let g:which_key_map['o' ] = [':Ranger'                     , 'ranger'          ]
-let g:which_key_map['q' ] = [':Bdelete'                    , 'delete buffer'   ]
+let g:which_key_map['q' ] = [':bdelete'                    , 'delete buffer'   ]
 let g:which_key_map['r' ] = [ '<C-W>v'                     , 'split right'     ]
 let g:which_key_map['u' ] = [ ':UndotreeToggle'            , 'undo tree'       ]
 let g:which_key_map['y' ] = [ ':CocList -A --normal yank'  , 'yank list'       ]
@@ -69,7 +71,7 @@ let g:which_key_map.a = {
 " d is for debug
 let g:which_key_map.d = {
 			\ 'name' : '+debug' ,
-			\ 'R' : [':call vimspector#Restart()'                  , 'restart'              ] ,
+			\ 'r' : [':call vimspector#Restart()'                  , 'restart'              ] ,
 			\ 'S' : [':call vimspector#StepOut()'                  , 'stepout'              ] ,
 			\ 'b' : [':call vimspector#ToggleBreakpoint()'         , 'toggle breakpoint'    ] ,
 			\ 'c' : ['<Plug>VimspectorToggleConditionalBreakpoint' , 'condition breakpoint' ] ,
@@ -78,7 +80,7 @@ let g:which_key_map.d = {
 			\ 'l' : [':call vimspector#Launch()'                   , 'Launch'               ] ,
 			\ 'o' : [':call vimspector#StepOver()'                 , 'step over'            ] ,
 			\ 'q' : [':call vimspector#Reset()'                    , 'stop'                 ] ,
-			\ 'r' : [':call vimspector#RunToCursor()'              , 'runto'                ] ,
+			\ 't' : [':call vimspector#RunToCursor()'              , 'runto'                ] ,
 			\ 's' : [':call vimspector#StepInto()'                 , 'stepinto'             ] ,
 			\ 'w' : [':call vimspector#AddWatch()'                 , 'add watch'            ] ,
 			\ }
@@ -86,14 +88,16 @@ let g:which_key_map.d = {
 " w is for window
 let g:which_key_map.w = {
 			\ 'name' : '+window'                         ,
-			\ 'b' : ['<C-W>s'                            , 'split below'             ] ,
-			\ 'd' : [':windo diffthis'                            , 'window diff'    ] ,
-			\ 'D' : [':windo diffoff'                            , 'window diff off' ] ,
-			\ 'r' : ['<C-W>v'                            , 'split right'             ] ,
-			\ '=' : ['<C-W>='                            , 'balance windows'         ] ,
-			\ 't' : [':tabe'                             , 'new tab'                 ] ,
-			\ 'w' : [':MaximizerToggle'                  , 'toggle wind max'         ] ,
-			\ 's' : [':call WindowSwap#EasyWindowSwap()' , 'swap window'             ] ,
+			\ '=' : ['<C-W>='                            , 'balance windows' ] ,
+			\ 'D' : [':windo diffoff'                    , 'window diff off' ] ,
+			\ 'b' : ['<C-W>s'                            , 'split below'     ] ,
+			\ 'd' : [':windo diffthis'                   , 'window diff'     ] ,
+			\ 'h' : [':windo wincmd K'                   , 'to hs'           ] ,
+			\ 'r' : ['<C-W>v'                            , 'split right'     ] ,
+			\ 's' : [':call WindowSwap#EasyWindowSwap()' , 'swap window'     ] ,
+			\ 't' : [':tabe'                             , 'new tab'         ] ,
+			\ 'v' : [':windo wincmd H'                   , 'to vs'           ] ,
+			\ 'w' : [':MaximizerToggle'                  , 'toggle wind max' ] ,
 			\ }
 
 " s is for search
@@ -115,7 +119,7 @@ let g:which_key_map.s = {
 			\ 'm' : [':Marks'                 , 'marks'              ] ,
 			\ 'p' : [':Helptags'              , 'help tags'          ] ,
 			\ 's' : [':BTags'                 , 'buffer tags'        ] ,
-			\ 'S' : [':Snippets'                 , 'buffer tags'        ] ,
+			\ 'S' : [':Snippets'              , 'snippets'        ] ,
 			\ 't' : [':Rg'                    , 'text Rg'            ] ,
 			\ 'w' : [':Windows'               , 'search windows'     ] ,
 			\ 'y' : [':Filetypes'             , 'file types'         ] ,

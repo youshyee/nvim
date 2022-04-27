@@ -1,6 +1,7 @@
 priority 50
 
 # mysnippets
+pre_expand "del snip.buffer[snip.line]; snip.buffer.append('');snip.cursor.set(0,0)"
 snippet importtorch "the basic import for pytorch" b
 import torch
 import torch.nn as nn
@@ -12,8 +13,9 @@ from pathlib import Path
 $0
 endsnippet
 
+pre_expand "del snip.buffer[snip.line]; snip.buffer.append('');snip.cursor.set(0,0)"
 snippet importpath "quit import path" b
-from libpath import Path
+from pathlib import Path
 $0
 endsnippet
 
@@ -141,6 +143,10 @@ if __name__ == "__main__":
 endsnippet
 
 snippet ifmain "ifmain" b
-if __name__ == `!p snip.rv = get_quoting_style(snip)`__main__`!p snip.rv = get_quoting_style(snip)`:
+if __name__ =="__main__":
 	${1:${VISUAL:main()}}
+endsnippet
+
+snippet dprint "debug print" b
+print('${1:${VISUAL}} ->','type:', type(${1:${VISUAL}}), 'value:', ${1:${VISUAL}})
 endsnippet

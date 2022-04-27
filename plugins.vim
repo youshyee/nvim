@@ -43,6 +43,8 @@ if !exists('g:vscode')
 	Plug 'crusoexia/vim-dracula'
 	Plug 'lunarvim/colorschemes'
 	Plug 'folke/tokyonight.nvim'
+	Plug 'morhetz/gruvbox'
+	Plug 'tomasr/molokai'
 	" Plug 'jonstoler/werewolf.vim'
 
 	" Swap windows

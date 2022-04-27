@@ -3,9 +3,12 @@
 		"default debug": {
 			"adapter": "debugpy",
 			"configuration": {
-				"python": "pythonnvim",
+				// modify here
+				"python": "./run.sh", // exe path
 				"args": ["*${CommandLineArgs}"],
 				"program": "${file}",
+				// modify here
+
 				"request": "launch",
 				"type": "python",
 				"cwd": "${workspaceRoot}",

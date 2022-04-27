@@ -63,6 +63,7 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x><c-p>  fzf#vim#complete#path('locate /')
 
 " Git grep
 command! -bang -nargs=* GGrep
@@ -71,5 +72,5 @@ command! -bang -nargs=* GGrep
 			\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 " nnoremap \o :call fzf#run({'sink': 'r'})<cr>
-command! LS call fzf#run(fzf#wrap({'sink': 'r'}))
+
 
