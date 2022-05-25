@@ -1,4 +1,3 @@
-
 noremap <C-R> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 		exec "w"

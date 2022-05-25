@@ -46,6 +46,7 @@ if !exists('g:vscode') " vim only
 	" color dracula
 	" color desert
 	" color deus
+	" color molokai
 	color tokyonight
 	" color darkplus
 	" color gruvbox
