@@ -2,25 +2,28 @@
 " ===
 " === Install Plugins with Vim-Plug
 " ===
+"
 call plug#begin('~/.config/nvim/plugged')
 
-" Change dates fast using <c-a> and <c-x> can change data
-Plug 'tpope/vim-speeddating'
-Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter backward
-Plug 'tomtom/tcomment_vim' " in z/ to comment a line or /; to comment inline
-" Repeat stuff
-Plug 'tpope/vim-repeat'
-Plug 'easymotion/vim-easymotion' " toggle ' quick locate by letter
-Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
-Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'svermeulen/vim-subversive' " use ss to replace line with place holder <++> use s<motion> to replace with <++>
-Plug 'github/copilot.vim'
+" chatgpt and its requirements
+	" Plug 'nvim-lua/plenary.nvim'
+	" Plug 'nvim-telescope/telescope.nvim'
+	" Plug 'MunifTanjim/nui.nvim'
+	" Plug 'JackMort/ChatGPT.nvim'
+	Plug 'thmsmlr/gpt.nvim'
 
-if exists('g:vscode')
-	Plug 'machakann/vim-highlightedyank'
-endif
+	" Change dates fast using <c-a> and <c-x> can change data
+	Plug 'tpope/vim-speeddating'
+	Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter backward
+	Plug 'tomtom/tcomment_vim' " in z/ to comment a line or /; to comment inline
+	" Repeat stuff
+	Plug 'tpope/vim-repeat'
+	Plug 'easymotion/vim-easymotion' " toggle ' quick locate by letter
+	Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
+	Plug 'tpope/vim-surround' " type ysiw' to wrap the word with '' or type cs'` to change 'word' to `word`
+	Plug 'svermeulen/vim-subversive' " use ss to replace line with place holder <++> use s<motion> to replace with <++>
+	Plug 'github/copilot.vim'
 
-if !exists('g:vscode')
 	Plug 'RRethy/vim-illuminate'
 	" auto set indent settings
 	Plug 'tpope/vim-sleuth'
@@ -58,13 +61,13 @@ if !exists('g:vscode')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim' "c-f find in files c-l find in line
 	" Plug 'kevinhwang91/rnvimr' "<lead>+R run ranger
-	  Plug 'francoiscabrol/ranger.vim'
-	  Plug 'rbgrouleff/bclose.vim'
+	Plug 'francoiscabrol/ranger.vim'
+	Plug 'rbgrouleff/bclose.vim'
 
-	" Taglist
-	" Plug 'liuchengxu/vista.vim'
+		" Taglist
+		" Plug 'liuchengxu/vista.vim'
 
-	" Debugger
+		" Debugger
 	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python'}
 
 	" Auto Complete
@@ -74,7 +77,7 @@ if !exists('g:vscode')
 	Plug 'SirVer/ultisnips' "  # to do
 	Plug 'honza/vim-snippets'
 
-	" Undo Tree
+		" Undo Tree
 	Plug 'mbbill/undotree' " <leader>u toggle undotree
 	" Git
 	Plug 'tpope/vim-fugitive'
@@ -113,12 +116,12 @@ if !exists('g:vscode')
 	Plug 'alvan/vim-closetag'
 	Plug 'mattn/emmet-vim'
 
-	" Other filetypes
-	" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
-	" Plug 'ivanov/vim-ipython'
+		" Other filetypes
+		" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
+		" Plug 'ivanov/vim-ipython'
 
-	" Editor Enhancement
-	"Plug 'Raimondi/delimitMate'
+		" Editor Enhancement
+		"Plug 'Raimondi/delimitMate'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'moll/vim-bbye'
 	Plug 'theniceboy/antovim' "  'gs' to switch true to false
@@ -163,9 +166,9 @@ if !exists('g:vscode')
 
 	" Dependencies
 	Plug 'kana/vim-textobj-user'
-endif
 
 call plug#end()
+
 
 
 
@@ -174,54 +177,51 @@ call plug#end()
 source $HOME/.config/nvim/plugconfig/easymotion.vim
 source $HOME/.config/nvim/plugconfig/subversive.vim
 
-if exists('g:vscode') " vscode only
-	source $HOME/.config/nvim/vscodesetting.vim
-	source $HOME/.config/nvim/plugconfig/highlightyank.vim
-endif
-if !exists('g:vscode') " vim only
-	source $HOME/.config/nvim/plugconfig/ultisnips.vim
-	source $HOME/.config/nvim/plugconfig/which-key.vim
-	source $HOME/.config/nvim/plugconfig/airline.vim
-	source $HOME/.config/nvim/plugconfig/gitgutter.vim
-	source $HOME/.config/nvim/plugconfig/fugitive.vim
-	source $HOME/.config/nvim/plugconfig/instantmarkdownpreview.vim
-	source $HOME/.config/nvim/plugconfig/coc.vim
-	source $HOME/.config/nvim/plugconfig/vimtablemode.vim
-	source $HOME/.config/nvim/plugconfig/fzf.vim
-	source $HOME/.config/nvim/plugconfig/codi.vim
-	source $HOME/.config/nvim/plugconfig/vimbookmark.vim
-	source $HOME/.config/nvim/plugconfig/undotree.vim
-	source $HOME/.config/nvim/plugconfig/multicursor.vim
-	source $HOME/.config/nvim/plugconfig/bullet.vim
-	source $HOME/.config/nvim/plugconfig/closetag.vim
-	source $HOME/.config/nvim/plugconfig/vimtex.vim
-	source $HOME/.config/nvim/plugconfig/goyo.vim
-	source $HOME/.config/nvim/plugconfig/maximizer.vim
+source $HOME/.config/nvim/plugconfig/ultisnips.vim
+source $HOME/.config/nvim/plugconfig/which-key.vim
+source $HOME/.config/nvim/plugconfig/airline.vim
+source $HOME/.config/nvim/plugconfig/gitgutter.vim
+source $HOME/.config/nvim/plugconfig/fugitive.vim
+source $HOME/.config/nvim/plugconfig/instantmarkdownpreview.vim
+source $HOME/.config/nvim/plugconfig/coc.vim
+source $HOME/.config/nvim/plugconfig/vimtablemode.vim
+source $HOME/.config/nvim/plugconfig/fzf.vim
+source $HOME/.config/nvim/plugconfig/codi.vim
+source $HOME/.config/nvim/plugconfig/vimbookmark.vim
+source $HOME/.config/nvim/plugconfig/undotree.vim
+source $HOME/.config/nvim/plugconfig/multicursor.vim
+source $HOME/.config/nvim/plugconfig/bullet.vim
+source $HOME/.config/nvim/plugconfig/closetag.vim
+source $HOME/.config/nvim/plugconfig/vimtex.vim
+source $HOME/.config/nvim/plugconfig/goyo.vim
+source $HOME/.config/nvim/plugconfig/maximizer.vim
 
-	" source $HOME/.config/nvim/plugconfig/werewolf.vim
+" source $HOME/.config/nvim/plugconfig/werewolf.vim
 
-	source $HOME/.config/nvim/plugconfig/tabular.vim
-	source $HOME/.config/nvim/plugconfig/rainbow.vim
-	source $HOME/.config/nvim/plugconfig/ranger.vim
-	source $HOME/.config/nvim/plugconfig/xtabline.vim
-	source $HOME/.config/nvim/plugconfig/polyglot.vim
-	" source $HOME/.config/nvim/plugconfig/suda.vim
-	source $HOME/.config/nvim/plugconfig/markdowntoc.vim
-	source $HOME/.config/nvim/plugconfig/bullets.vim
-	source $HOME/.config/nvim/plugconfig/illuminate.vim
-	source $HOME/.config/nvim/plugconfig/rooter.vim
-	source $HOME/.config/nvim/plugconfig/startify.vim
-	source $HOME/.config/nvim/plugconfig/asynctasks.vim
-	source $HOME/.config/nvim/plugconfig/tcomment.vim
-	source $HOME/.config/nvim/plugconfig/floatterm.vim
-	source $HOME/.config/nvim/plugconfig/copilot.vim
+source $HOME/.config/nvim/plugconfig/tabular.vim
+source $HOME/.config/nvim/plugconfig/rainbow.vim
+source $HOME/.config/nvim/plugconfig/ranger.vim
+source $HOME/.config/nvim/plugconfig/xtabline.vim
+source $HOME/.config/nvim/plugconfig/polyglot.vim
+" source $HOME/.config/nvim/plugconfig/suda.vim
+source $HOME/.config/nvim/plugconfig/markdowntoc.vim
+source $HOME/.config/nvim/plugconfig/bullets.vim
+source $HOME/.config/nvim/plugconfig/illuminate.vim
+source $HOME/.config/nvim/plugconfig/rooter.vim
+source $HOME/.config/nvim/plugconfig/startify.vim
+source $HOME/.config/nvim/plugconfig/asynctasks.vim
+source $HOME/.config/nvim/plugconfig/tcomment.vim
+source $HOME/.config/nvim/plugconfig/floatterm.vim
+source $HOME/.config/nvim/plugconfig/copilot.vim
+source $HOME/.config/nvim/plugconfig/gpt.vim
 
 	" ===
 	" === others
 	" ===
-	let g:windowswap_map_keys = 0 "prevent default bindings
-	let g:AutoPairsMapSpace = 0 "prevent default bindings
-	let g:python_highlight_all=1
-endif
+let g:windowswap_map_keys = 0 "prevent default bindings
+let g:AutoPairsMapSpace = 0 "prevent default bindings
+let g:python_highlight_all=1
 
 " ===================== End of Plugin Settings =====================
+"
+"
