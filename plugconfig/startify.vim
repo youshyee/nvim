@@ -35,7 +35,7 @@ endfunction
 let g:startify_bookmarks = [
 			\ { 'i': '~/.config/i3/config' },
 			\ { 'v': '~/.config/nvim/init.vim' },
-			\ { 'f': '~/.config/fish/config.fish' },
+			\ { 'z': '~/.config/zsh/zshrc' },
 			\ ]
 
 let g:startify_enable_special = 0
