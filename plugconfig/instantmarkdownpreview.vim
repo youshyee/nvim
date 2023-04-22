@@ -9,4 +9,4 @@ let g:instant_markdown_autostart = 0
 " let g:instant_markdown_allow_external_content = 0
 " let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
-let g:instant_markdown_browser = "brave --new-window"
+let g:instant_markdown_browser = "brave-browser --new-window"
