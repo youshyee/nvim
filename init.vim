@@ -45,8 +45,8 @@ if !exists('g:vscode') " vim only
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	" color dracula
 	" color desert
-	" color deus
-	color molokai
+	color deus
+	" color molokai
 	" color tokyonight
 	" color darkplus
 	" color gruvbox

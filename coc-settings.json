@@ -91,6 +91,8 @@
 
 	//python right
 	"python.pythonPath":"pythonvim",
+	"pyright.inlayHints.functionReturnTypes": false,
+	"pyright.inlayHints.variableTypes": false,
 	"html.format.enable": true,
 	"javascript.referencesCodeLens.enable": true,
 	"javascript.showUnused": true,
