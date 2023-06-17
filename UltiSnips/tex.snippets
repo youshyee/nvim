@@ -11,6 +11,10 @@ snippet bf "Bold" wi
 \textbf{${1:${VISUAL}}}$0
 endsnippet
 
+snippet tt "texttt" wi
+\texttt{${1:${VISUAL}}}$0
+endsnippet
+
 snippet it "Italic" wi
 \textit{${1:${VISUAL}}}$0
 endsnippet
@@ -21,6 +25,14 @@ endsnippet
 
 snippet rm "Text" wi
 \rm{${1:${VISUAL}}}$0
+endsnippet
+
+snippet bb "mathbb" w
+\mathbb{${0:${VISUAL}}}
+endsnippet
+
+snippet cal "mathbb" w
+\mathcal{${0:${VISUAL}}}
 endsnippet
 
 
@@ -66,7 +78,7 @@ endsnippet
 snippet abs "abstract environment" b
 \begin{abstract}
 	${0:${VISUAL}}
-.\end{abstract}
+\end{abstract}
 endsnippet
 
 snippet tab "tabular / array environment" b
@@ -92,29 +104,18 @@ endsnippet
 ########
 snippet equ "equation env" b
 \begin{equation}\label{equ:}
-\footnotesize{
 		$0
-}
 \end{equation}
 
 endsnippet
 snippet equs "equation split env" b
 \begin{equation}\label{equ:}
-\footnotesize{
 	\begin{split}
 		$0
 	\end{split}
-}
 \end{equation}
 endsnippet
 
-snippet bb "mathbb" w
-\mathbb{${0:${VISUAL}}}
-endsnippet
-
-snippet cal "mathbb" w
-\mathcal{${0:${VISUAL}}}
-endsnippet
 
 
 

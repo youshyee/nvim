@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Change dates fast using <c-a> and <c-x> can change data
 	Plug 'tpope/vim-speeddating'
-	Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter backward
+	" Plug 'rhysd/clever-f.vim'  "use f + letter to locate quickly forward, F + letter backward
 	Plug 'tomtom/tcomment_vim' " in z/ to comment a line or /; to comment inline
 	" Repeat stuff
 	Plug 'tpope/vim-repeat'
@@ -221,7 +221,8 @@ source $HOME/.config/nvim/plugconfig/gpt.vim
 let g:windowswap_map_keys = 0 "prevent default bindings
 let g:AutoPairsMapSpace = 0 "prevent default bindings
 let g:python_highlight_all=1
-
+let g:loaded_perl_provider = 0 " not use perl
+let g:loaded_ruby_provider = 0 " not use perl
 " ===================== End of Plugin Settings =====================
 "
 "
