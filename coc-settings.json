@@ -58,8 +58,8 @@
 		"html",
 		"css",
 		"json",
-		"python"
 	],
+		// "python"
 	"yaml.format.enable": true,
 	"signature.target": "float",
 	"yank.enableCompletion": false,
