@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'nvim-telescope/telescope.nvim'
 	" Plug 'MunifTanjim/nui.nvim'
 	" Plug 'JackMort/ChatGPT.nvim'
-	Plug 'thmsmlr/gpt.nvim'
+	Plug 'youshyee/gpt.nvim'
 
 	" Change dates fast using <c-a> and <c-x> can change data
 	Plug 'tpope/vim-speeddating'
