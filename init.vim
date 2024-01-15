@@ -23,6 +23,7 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
 	let has_machine_specific_file = 0
 	silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
+
 source ~/.config/nvim/_machine_specific.vim
 " general settings
 source $HOME/.config/nvim/general/settings.vim
@@ -44,8 +45,8 @@ if !exists('g:vscode') " vim only
 	set termguicolors " enable true colors support
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	" color dracula
-	" color desert
-	color deus
+	color desert
+	" color deus
 	" color molokai
 	" color tokyonight
 	" color darkplus

@@ -68,9 +68,9 @@ tnoremap <C-n> <C-\><C-n> " this line will lead to esc not function in fzf previ
 noremap ` ~
 
 " placeholder in vim
-nnoremap zz <Esc>/<++><CR>:nohlsearch<CR>c4l
-nnoremap ,. <Esc>a<++><Esc>
-iabbrev ,. <++>
+" nnoremap zz <Esc>/<++><CR>:nohlsearch<CR>c4l
+" nnoremap ,. <Esc>a<++><Esc>
+" iabbrev ,. <++>
 
 nnoremap zx :nohlsearch<CR>
 

@@ -11,7 +11,7 @@ set autochdir
 set autoindent            " Good auto indent
 set background=dark " tell vim what the background color looks like
 " set cmdheight=2     " More space for displaying messages
-set colorcolumn=100
+" set colorcolumn=200
 set completeopt=longest,noinsert,menuone,noselect,preview
 set cursorline
 

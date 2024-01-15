@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'nvim-telescope/telescope.nvim'
 	" Plug 'MunifTanjim/nui.nvim'
 	" Plug 'JackMort/ChatGPT.nvim'
-	Plug 'youshyee/gpt.nvim'
+	" Plug 'youshyee/gpt.nvim'
 
 	" Change dates fast using <c-a> and <c-x> can change data
 	Plug 'tpope/vim-speeddating'
@@ -42,12 +42,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 	Plug 'bling/vim-bufferline'
 	" color schemes
-	Plug 'ajmwagar/vim-deus'
+	" Plug 'ajmwagar/vim-deus'
 	Plug 'crusoexia/vim-dracula'
 	Plug 'lunarvim/colorschemes'
 	Plug 'folke/tokyonight.nvim'
-	Plug 'morhetz/gruvbox'
-	Plug 'tomasr/molokai'
+	" Plug 'morhetz/gruvbox'
+	" Plug 'tomasr/molokai'
 	" Plug 'jonstoler/werewolf.vim'
 
 	" Swap windows
@@ -71,7 +71,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python'}
 
 	" Auto Complete
-	Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'} " too many of them explain later
 
 	" Snippets
 	Plug 'SirVer/ultisnips' "  # to do
@@ -92,7 +92,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 	" Tex
-	Plug 'lervag/vimtex'
+	" Plug 'lervag/vimtex'
 
 	" Python
 	" Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
@@ -102,19 +102,19 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
 	" Plug 'tweekmonster/braceless.vim'
 	" Interactive code
-	Plug 'metakirby5/codi.vim'
+	" Plug 'metakirby5/codi.vim'
 
 	" Markdown
 	" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-	Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-	Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-	Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
+	" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+	" Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+	" Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 	Plug 'dkarter/bullets.vim'
 
 	" html
 	" Closetags
-	Plug 'alvan/vim-closetag'
-	Plug 'mattn/emmet-vim'
+	" Plug 'alvan/vim-closetag'
+	" Plug 'mattn/emmet-vim'
 
 		" Other filetypes
 		" Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
@@ -140,7 +140,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Bookmarks
 	"Plug 'kshenoy/vim-signature'
-	Plug 'MattesGroeger/vim-bookmarks' "toggle book mark mm bookmark annotation ma bookmark show all ml
+	" Plug 'MattesGroeger/vim-bookmarks' "toggle book mark mm bookmark annotation ma bookmark show all ml
 
 	" Find & Replace
 	" Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } "find and replace by f
@@ -155,17 +155,17 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhinz/vim-startify'
 
 	" Other visual enhancement
-	Plug 'ryanoasis/vim-devicons'
+	" Plug 'ryanoasis/vim-devicons'
 	Plug 'luochen1990/rainbow'
 	Plug 'mg979/vim-xtabline'
-	Plug 'wincent/terminus'
+	" Plug 'wincent/terminus'
 
 	" Other useful utilities
 	Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-	Plug 'makerj/vim-pdf'
+	" Plug 'makerj/vim-pdf'
 
 	" Dependencies
-	Plug 'kana/vim-textobj-user'
+	" Plug 'kana/vim-textobj-user'
 
 call plug#end()
 
@@ -182,17 +182,17 @@ source $HOME/.config/nvim/plugconfig/which-key.vim
 source $HOME/.config/nvim/plugconfig/airline.vim
 source $HOME/.config/nvim/plugconfig/gitgutter.vim
 source $HOME/.config/nvim/plugconfig/fugitive.vim
-source $HOME/.config/nvim/plugconfig/instantmarkdownpreview.vim
-source $HOME/.config/nvim/plugconfig/coc.vim
+" source $HOME/.config/nvim/plugconfig/instantmarkdownpreview.vim
+" source $HOME/.config/nvim/plugconfig/coc.vim
 source $HOME/.config/nvim/plugconfig/vimtablemode.vim
 source $HOME/.config/nvim/plugconfig/fzf.vim
-source $HOME/.config/nvim/plugconfig/codi.vim
-source $HOME/.config/nvim/plugconfig/vimbookmark.vim
+" source $HOME/.config/nvim/plugconfig/codi.vim
+" source $HOME/.config/nvim/plugconfig/vimbookmark.vim
 source $HOME/.config/nvim/plugconfig/undotree.vim
-source $HOME/.config/nvim/plugconfig/multicursor.vim
+" source $HOME/.config/nvim/plugconfig/multicursor.vim
 source $HOME/.config/nvim/plugconfig/bullet.vim
 source $HOME/.config/nvim/plugconfig/closetag.vim
-source $HOME/.config/nvim/plugconfig/vimtex.vim
+" source $HOME/.config/nvim/plugconfig/vimtex.vim
 source $HOME/.config/nvim/plugconfig/goyo.vim
 source $HOME/.config/nvim/plugconfig/maximizer.vim
 
@@ -213,7 +213,7 @@ source $HOME/.config/nvim/plugconfig/asynctasks.vim
 source $HOME/.config/nvim/plugconfig/tcomment.vim
 source $HOME/.config/nvim/plugconfig/floatterm.vim
 source $HOME/.config/nvim/plugconfig/copilot.vim
-source $HOME/.config/nvim/plugconfig/gpt.vim
+" source $HOME/.config/nvim/plugconfig/gpt.vim
 
 	" ===
 	" === others
